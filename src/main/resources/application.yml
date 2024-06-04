@@ -1,0 +1,37 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: hris
+
+  datasource:
+    hikari:
+      driver-class-name: org.h2.Driver
+      jdbc-url: jdbc:h2:mem:test;MODE=MYSQL
+      username: sa
+      password:
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+  security:
+    user:
+      name: user
+      password: 1234
+
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:init/schema.sql
+      data-locations: classpath:init/data.sql
+
+  thymeleaf:
+    prefix: classpath:templates/
+    suffix: .html
+    cache: false
+
+mybatis:
+  mapper-locations: classpath:mybatis/*.xml
