@@ -26,7 +26,8 @@ spring:
     init:
       mode: always
       schema-locations: classpath:init/schema.sql
-      data-locations: classpath:init/data.sql
+#      비어있어서 주석 처리
+#      data-locations: classpath:init/data.sql
 
   thymeleaf:
     prefix: classpath:templates/
