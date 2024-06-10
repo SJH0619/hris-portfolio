@@ -28,6 +28,32 @@ public class EmployeeDAO {
     private String updateAt;
     private String updateBy;
 
+    public static EmployeeDAO applyEmployeeDTO(EmployeeDTO employeeDTO) {
+        return EmployeeDAO.builder()
+                .ueid(employeeDTO.getUeid())
+                .employeeId(employeeDTO.getEmployeeId())
+                .password(employeeDTO.getPassword())
+                .name(employeeDTO.getName())
+                .gender(employeeDTO.getGender())
+                .birth(employeeDTO.getBirth())
+                .personalPhoneNumber(employeeDTO.getPersonalPhoneNumber())
+                .externalTellNumber(employeeDTO.getExternalTellNumber())
+                .internalTellNumber(employeeDTO.getInternalTellNumber())
+                .personalEmailAddress(employeeDTO.getPersonalEmailAddress())
+                .companyEmailAddress(employeeDTO.getCompanyEmailAddress())
+                .departmentCode(employeeDTO.getDepartmentCode())
+                .jobTitleCode(employeeDTO.getJobTitleCode())
+                .joinDate(employeeDTO.getJoinDate())
+                .resignDate(employeeDTO.getResignDate())
+                .employmentType(employeeDTO.getEmploymentType())
+                .remainingDays(employeeDTO.getRemainingDays())
+                .insertAt(employeeDTO.getInsertAt())
+                .insertBy(employeeDTO.getInsertBy())
+                .updateAt(employeeDTO.getUpdateAt())
+                .updateBy(employeeDTO.getUpdateBy())
+                .build();
+    }
+
     public EmployeeDTO getEmployeeDTO() {
         EmployeeDTO employeeDTO = new EmployeeDTO();
         employeeDTO.setUeid(ueid);

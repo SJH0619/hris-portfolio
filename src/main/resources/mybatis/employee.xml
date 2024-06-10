@@ -27,7 +27,56 @@
     </resultMap>
 
     <select id="getList" resultMap="Employee">
-        select * from employee
+        select
+            *
+        from employee
     </select>
-
+    
+    <insert id="createEmployee" parameterType="com.portfolio.hris.employee.EmployeeDAO">
+        insert into employee(
+            ueid,
+            employee_id,
+            password,
+            name,
+            gender,
+            birth,
+            personal_phone_number,
+            external_tell_number,
+            internal_tell_number,
+            personal_email_address,
+            company_email_address,
+            department_code,
+            job_title_code,
+            join_date,
+            resign_date,
+            employment_type,
+            remaining_days,
+            insert_at,
+            insert_by,
+            update_at,
+            update_by
+        ) values (
+            #{ueid},
+            #{employeeId},
+            #{password},
+            #{name},
+            #{gender},
+            #{birth},
+            #{personalPhoneNumber},
+            #{externalTellNumber},
+            #{internalTellNumber},
+            #{personalEmailAddress},
+            #{companyEmailAddress},
+            #{departmentCode},
+            #{jobTitleCode},
+            #{joinDate},
+            #{resignDate},
+            #{employmentType},
+            #{remainingDays},
+            #{insertAt},
+            #{insertBy},
+            #{updateAt},
+            #{updateBy}
+        )
+    </insert>
 </mapper>

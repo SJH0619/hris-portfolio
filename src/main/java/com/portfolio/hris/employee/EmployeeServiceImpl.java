@@ -20,4 +20,11 @@ public class EmployeeServiceImpl implements EmployeeService {
 
         return result;
     }
+
+    @Override
+    public void createEmployee(EmployeeDTO employeeDTO) {
+        EmployeeDAO employeeDAO = EmployeeDAO.applyEmployeeDTO(employeeDTO);
+
+        employeeMapper.createEmployee(employeeDAO);
+    }
 }
