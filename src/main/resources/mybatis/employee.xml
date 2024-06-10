@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.portfolio.hris.employee.EmployeeMapper">
+
+    <resultMap id="Employee" type="com.portfolio.hris.employee.EmployeeDAO">
+        <id property="ueid" column="ueid" />
+        <result property="employeeId" column="employee_id" />
+        <result property="password" column="password" />
+        <result property="name" column="name" />
+        <result property="gender" column="gender" />
+        <result property="birth" column="birth" />
+        <result property="personalPhoneNumber" column="personal_phone_number" />
+        <result property="externalTellNumber" column="external_tell_number" />
+        <result property="internalTellNumber" column="internal_tell_number" />
+        <result property="personalEmailAddress" column="personal_email_address" />
+        <result property="companyEmailAddress" column="company_email_address" />
+        <result property="departmentCode" column="department_code" />
+        <result property="jobTitleCode" column="job_title_code" />
+        <result property="joinDate" column="join_date" />
+        <result property="resignDate" column="resign_date" />
+        <result property="employmentType" column="employment_type" />
+        <result property="remainingDays" column="remaining_days" />
+        <result property="insertAt" column="insert_at" />
+        <result property="insertBy" column="insert_by" />
+        <result property="updateAt" column="update_at" />
+        <result property="updateBy" column="update_by" />
+    </resultMap>
+
+    <select id="getList" resultMap="Employee">
+        select * from employee
+    </select>
+
+</mapper>
