@@ -6,4 +6,6 @@ public interface EmployeeService {
     List<EmployeeDTO> getList();
 
     void createEmployee(EmployeeDTO employeeDTO);
+
+    EmployeeDTO readEmployee(String employeeId);
 }

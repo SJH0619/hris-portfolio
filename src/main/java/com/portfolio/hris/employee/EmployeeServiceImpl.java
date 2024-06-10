@@ -27,4 +27,11 @@ public class EmployeeServiceImpl implements EmployeeService {
 
         employeeMapper.createEmployee(employeeDAO);
     }
+
+    @Override
+    public EmployeeDTO readEmployee(String employeeId) {
+        EmployeeDAO employeeDAO = employeeMapper.getEmployeeByEmployeeId(employeeId);
+
+        return employeeDAO.getEmployeeDTO();
+    }
 }

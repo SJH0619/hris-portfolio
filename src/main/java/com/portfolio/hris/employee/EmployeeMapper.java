@@ -9,4 +9,6 @@ public interface EmployeeMapper {
     List<EmployeeDAO> getList();
 
     void createEmployee(EmployeeDAO employeeDAO);
+
+    EmployeeDAO getEmployeeByEmployeeId(String employeeId);
 }
