@@ -50,4 +50,18 @@
             department_code = #{departmentCode}
     </select>
 
+    <update id="updateEmployeeInformation" parameterType="com.portfolio.hris.department.DepartmentDAO">
+        update
+            department
+        set
+            department_name = #{departmentName},
+            parent_department_code = #{parentDepartmentCode},
+            department_manager_ueid = #{departmentManagerUeid},
+            foundation_date = #{foundationDate},
+            update_at = #{updateAt},
+            update_by = #{updateBy}
+        where
+            department_code = #{departmentCode}
+    </update>
+
 </mapper>
