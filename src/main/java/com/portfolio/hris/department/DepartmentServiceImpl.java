@@ -1,11 +1,10 @@
 package com.portfolio.hris.department;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import lombok.RequiredArgsConstructor;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -20,5 +19,12 @@ public class DepartmentServiceImpl implements DepartmentService {
         resource.forEach(department -> result.add(department.getDepartmentDTO()));
 
         return result;
+    }
+
+    @Override
+    public void createDepartment(DepartmentDTO departmentDTO) {
+        DepartmentDAO departmentDAO = DepartmentDAO.applyDepartmentDTO(departmentDTO);
+
+        departmentMapper.createDepartment(departmentDAO);
     }
 }

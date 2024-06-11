@@ -1,10 +1,12 @@
 package com.portfolio.hris.department;
 
-import java.util.List;
-
 import org.apache.ibatis.annotations.Mapper;
+
+import java.util.List;
 
 @Mapper
 public interface DepartmentMapper {
     List<DepartmentDAO> getList();
+
+    void createDepartment(DepartmentDAO departmentDAO);
 }
