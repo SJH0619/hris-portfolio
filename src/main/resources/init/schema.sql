@@ -1,8 +1,8 @@
 drop table if exists employee;
 drop table if exists department;
-drop table if exists job_title;
+drop table if exists position;
 drop table if exists salary;
-drop table if exists performance_evaluation;
+drop table if exists evaluation;
 drop table if exists vacation;
 drop table if exists attendance;
 
@@ -19,7 +19,7 @@ create table employee(
     personal_email_address char(50) comment '개인 이메일 주소',
     company_email_address char(50) comment '사내 이메일 주소',
     department_code char(2) comment '부서',
-    job_title_code char(2) comment '직급',
+    position_code char(2) comment '직급',
     join_date char(8) comment '입사일',
     resign_date char(8) comment '퇴사일',
     employment_type char(1) comment '근무 유형',
@@ -42,9 +42,9 @@ create table department(
     update_by char(4) comment '수정자'
 );
 
-create table job_title(
-    job_title_code char(2) primary key comment '직급 코드',
-    job_title_name char(15) not null comment '직급명',
+create table position(
+    position_code char(2) primary key comment '직급 코드',
+    position_name char(15) not null comment '직급명',
     insert_at char(14) not null comment '생성일',
     insert_by char(4) not null comment '생성자',
     update_at char(14) comment '수정일',
@@ -64,20 +64,20 @@ create table salary(
     update_by char(4) comment '수정자'
 );
 
-create table performance_evaluation(
+create table evaluation(
     ueid char(4) comment '직원 고유 식별자',
     seq int auto_increment comment '순번',
-    performance_evaluation_start_date char(8) not null comment '성과 평가 시작 날짜',
-    performance_evaluation_end_date char(8) comment '성과 평가 종료 날짜',
-    performance_evaluation_item text comment '성과 평가 항목',
-    performance_evaluation_result text comment '성과 평가 결과',
-    performance_evaluation_comment text comment '성과 평가 비고',
-    performance_evaluation_responsibility char(4) not null comment '성과 평가자',
+    evaluation_start_date char(8) not null comment '성과 평가 시작 날짜',
+    evaluation_end_date char(8) comment '성과 평가 종료 날짜',
+    evaluation_item text comment '성과 평가 항목',
+    evaluation_result text comment '성과 평가 결과',
+    evaluation_comment text comment '성과 평가 비고',
+    evaluation_responsibility char(4) not null comment '성과 평가자',
     insert_at char(14) not null comment '생성일',
     insert_by char(4) not null comment '생성자',
     update_at char(14) comment '수정일',
     update_by char(4) comment '수정자',
-    constraint performance_evaluation_pk primary key(ueid, seq)
+    constraint evaluation_pk primary key(ueid, seq)
 );
 
 create table vacation(
