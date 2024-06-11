@@ -18,7 +18,7 @@ public class EmployeeDAO {
     private String personalEmailAddress;
     private String companyEmailAddress;
     private String departmentCode;
-    private String jobTitleCode;
+    private String positionCode;
     private String joinDate;
     private String resignDate;
     private String employmentType;
@@ -42,7 +42,7 @@ public class EmployeeDAO {
                 .personalEmailAddress(employeeDTO.getPersonalEmailAddress())
                 .companyEmailAddress(employeeDTO.getCompanyEmailAddress())
                 .departmentCode(employeeDTO.getDepartmentCode())
-                .jobTitleCode(employeeDTO.getJobTitleCode())
+                .positionCode(employeeDTO.getPositionCode())
                 .joinDate(employeeDTO.getJoinDate())
                 .resignDate(employeeDTO.getResignDate())
                 .employmentType(employeeDTO.getEmploymentType())
@@ -68,7 +68,7 @@ public class EmployeeDAO {
         employeeDTO.setPersonalEmailAddress(personalEmailAddress);
         employeeDTO.setCompanyEmailAddress(companyEmailAddress);
         employeeDTO.setDepartmentCode(departmentCode);
-        employeeDTO.setJobTitleCode(jobTitleCode);
+        employeeDTO.setPositionCode(positionCode);
         employeeDTO.setJoinDate(joinDate);
         employeeDTO.setResignDate(resignDate);
         employeeDTO.setEmploymentType(employmentType);

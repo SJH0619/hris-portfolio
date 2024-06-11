@@ -16,7 +16,7 @@ public class EmployeeDTO {
     public String personalEmailAddress;
     public String companyEmailAddress;
     public String departmentCode;
-    public String jobTitleCode;
+    public String positionCode;
     public String joinDate;
     public String resignDate;
     public String employmentType;

@@ -15,7 +15,7 @@
         <result property="personalEmailAddress" column="personal_email_address" />
         <result property="companyEmailAddress" column="company_email_address" />
         <result property="departmentCode" column="department_code" />
-        <result property="jobTitleCode" column="job_title_code" />
+        <result property="positionCode" column="position_code" />
         <result property="joinDate" column="join_date" />
         <result property="resignDate" column="resign_date" />
         <result property="employmentType" column="employment_type" />
@@ -47,7 +47,7 @@
             personal_email_address,
             company_email_address,
             department_code,
-            job_title_code,
+            position_code,
             join_date,
             resign_date,
             employment_type,
@@ -67,7 +67,7 @@
             #{personalEmailAddress},
             #{companyEmailAddress},
             #{departmentCode},
-            #{jobTitleCode},
+            #{positionCode},
             #{joinDate},
             #{resignDate},
             #{employmentType},
@@ -100,13 +100,13 @@
             personal_email_address = #{personalEmailAddress},
             company_email_address = #{companyEmailAddress},
             department_code = #{departmentCode},
-            job_title_code = #{jobTitleCode},
+            position_code = #{positionCode},
             join_date = #{joinDate},
             resign_date = #{resignDate},
             employment_type = #{employmentType},
             remaining_days = #{remainingDays},
-            update_at = #{update_at},
-            update_by = #{update_by}
+            update_at = #{updateAt},
+            update_by = #{updateBy}
         where
             employee_id = #{employeeId}
     </update>
