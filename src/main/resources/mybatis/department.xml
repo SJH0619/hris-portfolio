@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.portfolio.hris.department.DepartmentMapper">
+
+    <resultMap id="Department" type="com.portfolio.hris.department.DepartmentDAO">
+        <id property="departmentCode" column="department_code" />
+        <result property="departmentName" column="department_name" />
+        <result property="parentDepartmentCode" column="parent_department_code" />
+        <result property="departmentManagerUeid" column="department_manager_ueid" />
+        <result property="foundationDate" column="foundation_date" />
+        <result property="insertAt" column="insert_at" />
+        <result property="insertBy" column="insert_by" />
+        <result property="updateAt" column="update_at" />
+        <result property="updateBy" column="update_by" />
+    </resultMap>
+
+    <select id="getList" resultMap="Department">
+        select
+            *
+        from
+            department
+    </select>
+
+</mapper>
