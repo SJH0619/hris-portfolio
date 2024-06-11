@@ -34,4 +34,11 @@ public class DepartmentController {
 
         return "/department/read";
     }
+
+    @PostMapping("/update")
+    public String updateDepartmentInformation(DepartmentDTO departmentDTO) {
+        departmentService.updateDepartmentInformation(departmentDTO);
+
+        return "redirect:/department/read/" + departmentDTO.getDepartmentCode();
+    }
 }

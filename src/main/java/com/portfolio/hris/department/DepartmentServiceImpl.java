@@ -34,4 +34,11 @@ public class DepartmentServiceImpl implements DepartmentService {
 
         return departmentDAO.getDepartmentDTO();
     }
+
+    @Override
+    public void updateDepartmentInformation(DepartmentDTO departmentDTO) {
+        DepartmentDAO departmentDAO = DepartmentDAO.applyDepartmentDTO(departmentDTO);
+
+        departmentMapper.updateDepartmentInformation(departmentDAO);
+    }
 }

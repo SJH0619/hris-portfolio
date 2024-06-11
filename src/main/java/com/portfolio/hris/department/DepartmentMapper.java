@@ -11,4 +11,6 @@ public interface DepartmentMapper {
     void createDepartment(DepartmentDAO departmentDAO);
 
     DepartmentDAO getDepartmentByDepartmentCode(String departmentCode);
+
+    void updateDepartmentInformation(DepartmentDAO departmentDAO);
 }

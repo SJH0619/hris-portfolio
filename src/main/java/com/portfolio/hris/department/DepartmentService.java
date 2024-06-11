@@ -8,4 +8,6 @@ public interface DepartmentService {
     void createDepartment(DepartmentDTO departmentDTO);
 
     DepartmentDTO readDepartment(String departmentCode);
+
+    void updateDepartmentInformation(DepartmentDTO departmentDTO);
 }
