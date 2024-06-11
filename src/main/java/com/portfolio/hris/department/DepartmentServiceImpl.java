@@ -2,6 +2,7 @@ package com.portfolio.hris.department;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +13,7 @@ public class DepartmentServiceImpl implements DepartmentService {
     private final DepartmentMapper departmentMapper;
 
     @Override
+    @Transactional(readOnly = true)
     public List<DepartmentDTO> getList() {
         List<DepartmentDAO> resource = departmentMapper.getList();
         List<DepartmentDTO> result = new ArrayList<>();
@@ -22,6 +24,7 @@ public class DepartmentServiceImpl implements DepartmentService {
     }
 
     @Override
+    @Transactional
     public void createDepartment(DepartmentDTO departmentDTO) {
         DepartmentDAO departmentDAO = DepartmentDAO.applyDepartmentDTO(departmentDTO);
 
@@ -29,6 +32,7 @@ public class DepartmentServiceImpl implements DepartmentService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public DepartmentDTO readDepartment(String departmentCode) {
         DepartmentDAO departmentDAO = departmentMapper.getDepartmentByDepartmentCode(departmentCode);
 
@@ -36,6 +40,7 @@ public class DepartmentServiceImpl implements DepartmentService {
     }
 
     @Override
+    @Transactional
     public void updateDepartmentInformation(DepartmentDTO departmentDTO) {
         DepartmentDAO departmentDAO = DepartmentDAO.applyDepartmentDTO(departmentDTO);
 

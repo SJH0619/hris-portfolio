@@ -2,6 +2,7 @@ package com.portfolio.hris.employee;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +13,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     private final EmployeeMapper employeeMapper;
 
     @Override
+    @Transactional(readOnly = true)
     public List<EmployeeDTO> getList() {
         List<EmployeeDAO> resource = employeeMapper.getList();
         List<EmployeeDTO> result = new ArrayList<>();
@@ -22,6 +24,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
+    @Transactional
     public void createEmployee(EmployeeDTO employeeDTO) {
         EmployeeDAO employeeDAO = EmployeeDAO.applyEmployeeDTO(employeeDTO);
 
@@ -29,6 +32,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public EmployeeDTO readEmployee(String employeeId) {
         EmployeeDAO employeeDAO = employeeMapper.getEmployeeByEmployeeId(employeeId);
 
@@ -36,6 +40,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
+    @Transactional
     public void updateEmployeeInformation(EmployeeDTO employeeDTO) {
         EmployeeDAO employeeDAO = EmployeeDAO.applyEmployeeDTO(employeeDTO);
 
