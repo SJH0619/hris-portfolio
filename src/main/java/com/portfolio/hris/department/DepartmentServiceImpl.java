@@ -27,4 +27,11 @@ public class DepartmentServiceImpl implements DepartmentService {
 
         departmentMapper.createDepartment(departmentDAO);
     }
+
+    @Override
+    public DepartmentDTO readDepartment(String departmentCode) {
+        DepartmentDAO departmentDAO = departmentMapper.getDepartmentByDepartmentCode(departmentCode);
+
+        return departmentDAO.getDepartmentDTO();
+    }
 }

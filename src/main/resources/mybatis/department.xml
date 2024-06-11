@@ -21,4 +21,33 @@
             department
     </select>
 
+    <insert id="createDepartment" parameterType="com.portfolio.hris.department.DepartmentDAO">
+        insert into department(
+            department_code,
+            department_name,
+            parent_department_code,
+            department_manager_ueid,
+            foundation_date,
+            insert_at,
+            insert_by
+        ) values (
+            #{departmentCode},
+            #{departmentName},
+            #{parentDepartmentCode},
+            #{departmentManagerUeid},
+            #{foundationDate},
+            #{insertAt},
+            #{insertBy}
+        )
+    </insert>
+
+    <select id="getDepartmentByDepartmentCode" parameterType="String">
+        select
+            *
+        from
+            department
+        where
+            department_code = #{departmentCode}
+    </select>
+
 </mapper>

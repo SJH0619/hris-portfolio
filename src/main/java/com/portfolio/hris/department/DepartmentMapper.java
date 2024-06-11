@@ -9,4 +9,6 @@ public interface DepartmentMapper {
     List<DepartmentDAO> getList();
 
     void createDepartment(DepartmentDAO departmentDAO);
+
+    DepartmentDAO getDepartmentByDepartmentCode(String departmentCode);
 }

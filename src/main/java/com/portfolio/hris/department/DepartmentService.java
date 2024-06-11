@@ -6,4 +6,6 @@ public interface DepartmentService {
     List<DepartmentDTO> getList();
 
     void createDepartment(DepartmentDTO departmentDTO);
+
+    DepartmentDTO readDepartment(String departmentCode);
 }
