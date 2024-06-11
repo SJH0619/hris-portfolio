@@ -39,6 +39,6 @@ public class EmployeeController {
     public String updateEmployeeInformation(EmployeeDTO employeeDTO) {
         employeeService.updateEmployeeInformation(employeeDTO);
 
-        return "redirect:/read/" + employeeDTO.getEmployeeId();
+        return "redirect:/employee/read/" + employeeDTO.getEmployeeId();
     }
 }
