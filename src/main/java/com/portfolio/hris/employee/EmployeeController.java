@@ -29,7 +29,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/read/{employeeId}")
-    public String readEmployee(@PathVariable String employeeId, Model model) {
+    public String readEmployee(@PathVariable("employeeId") String employeeId, Model model) {
         model.addAttribute("employee", employeeService.readEmployee(employeeId));
 
         return "/employee/read";

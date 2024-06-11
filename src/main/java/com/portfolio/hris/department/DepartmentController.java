@@ -29,7 +29,7 @@ public class DepartmentController {
     }
 
     @GetMapping("/read/{departmentCode}")
-    public String readDepartment(@PathVariable String departmentCode, Model model) {
+    public String readDepartment(@PathVariable("departmentCode") String departmentCode, Model model) {
         model.addAttribute("department", departmentService.readDepartment(departmentCode));
 
         return "/department/read";
