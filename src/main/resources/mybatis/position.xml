@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.portfolio.hris.position.PositionMapper">
+
+    <resultMap id="Position" type="com.portfolio.hris.position.PositionDAO">
+        <id property="positionCode" column="position_code" />
+        <result property="positionName" column="position_name" />
+        <result property="insertAt" column="insert_at" />
+        <result property="insertBy" column="insert_by" />
+        <result property="updateAt" column="update_at" />
+        <result property="updateBy" column="update_by" />
+    </resultMap>
+
+    <select id="getList" resultMap="Position">
+        select
+            *
+        from
+            position
+    </select>
+
+    <insert id="createPosition" parameterType="com.portfolio.hris.position.PositionDAO">
+        insert into position(
+            position_code,
+            position_name,
+            insert_at,
+            insert_by
+        ) values (
+            #{positionCode},
+            #{positionName},
+            #{insertAt},
+            #{insertBy}
+        )
+    </insert>
+
+    <select id="getPositionByPositionCode" parameterType="String">
+        select
+            *
+        from
+            position
+        where
+            position_code = #{positionCode}
+    </select>
+
+    <update id="updatePositionInformation" parameterType="com.portfolio.hris.position.PositionDAO">
+        update
+            position
+        set
+            position_name = #{positionName},
+            update_at = #{updateAt},
+            update_by = #{updateBy}
+        where
+            position_code = #{positionCode}
+    </update>
+
+</mapper>
