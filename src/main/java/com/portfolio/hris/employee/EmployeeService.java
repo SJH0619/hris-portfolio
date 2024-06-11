@@ -8,4 +8,6 @@ public interface EmployeeService {
     void createEmployee(EmployeeDTO employeeDTO);
 
     EmployeeDTO readEmployee(String employeeId);
+
+    void updateEmployeeInformation(EmployeeDTO employeeDTO);
 }

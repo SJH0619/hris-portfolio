@@ -34,4 +34,11 @@ public class EmployeeController {
 
         return "/employee/read";
     }
+
+    @PostMapping("/update")
+    public String updateEmployeeInformation(EmployeeDTO employeeDTO) {
+        employeeService.updateEmployeeInformation(employeeDTO);
+
+        return "redirect:/read/" + employeeDTO.getEmployeeId();
+    }
 }

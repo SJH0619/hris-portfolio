@@ -34,4 +34,11 @@ public class EmployeeServiceImpl implements EmployeeService {
 
         return employeeDAO.getEmployeeDTO();
     }
+
+    @Override
+    public void updateEmployeeInformation(EmployeeDTO employeeDTO) {
+        EmployeeDAO employeeDAO = EmployeeDAO.applyEmployeeDTO(employeeDTO);
+
+        employeeMapper.updateEmployeeInformation(employeeDAO);
+    }
 }

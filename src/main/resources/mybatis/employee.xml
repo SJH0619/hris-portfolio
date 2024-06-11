@@ -32,7 +32,7 @@
         from
             employee
     </select>
-    
+
     <insert id="createEmployee" parameterType="com.portfolio.hris.employee.EmployeeDAO">
         insert into employee(
             ueid,
@@ -53,9 +53,7 @@
             employment_type,
             remaining_days,
             insert_at,
-            insert_by,
-            update_at,
-            update_by
+            insert_by
         ) values (
             #{ueid},
             #{employeeId},
@@ -75,9 +73,7 @@
             #{employmentType},
             #{remainingDays},
             #{insertAt},
-            #{insertBy},
-            #{updateAt},
-            #{updateBy}
+            #{insertBy}
         )
     </insert>
 
@@ -90,4 +86,28 @@
             employee_id = #{employeeId}
     </select>
 
+    <update id="updateEmployeeInformation" parameterType="com.portfolio.hris.employee.EmployeeDAO">
+        update
+            employee
+        set
+            password = #{password},
+            name = #{name},
+            gender = #{gender},
+            birth = #{birth},
+            personal_phone_number = #{personalPhoneNumber},
+            external_tell_number = #{externalTellNumber},
+            internal_tell_number = #{internalTellNumber},
+            personal_email_address = #{personalEmailAddress},
+            company_email_address = #{companyEmailAddress},
+            department_code = #{departmentCode},
+            job_title_code = #{jobTitleCode},
+            join_date = #{joinDate},
+            resign_date = #{resignDate},
+            employment_type = #{employmentType},
+            remaining_days = #{remainingDays},
+            update_at = #{update_at},
+            update_by = #{update_by}
+        where
+            employee_id = #{employeeId}
+    </update>
 </mapper>

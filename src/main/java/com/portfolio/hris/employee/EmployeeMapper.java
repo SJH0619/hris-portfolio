@@ -11,4 +11,6 @@ public interface EmployeeMapper {
     void createEmployee(EmployeeDAO employeeDAO);
 
     EmployeeDAO getEmployeeByEmployeeId(String employeeId);
+
+    void updateEmployeeInformation(EmployeeDAO employeeDAO);
 }
