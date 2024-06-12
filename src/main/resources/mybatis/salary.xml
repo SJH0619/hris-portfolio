@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.portfolio.hris.salary.SalaryMapper">
+
+    <resultMap id="Salary" type="com.portfolio.hris.salary.SalaryDAO">
+        <id property="ueid" column="ueid" />
+        <result property="salaryType" column="salary_type" />
+        <result property="paymentDate" column="payment_date" />
+        <result property="baseSalary" column="base_salary" />
+        <result property="performanceBonus" column="performance_bonus" />
+        <result property="specialBonus" column="special_bonus" />
+        <result property="insertAt" column="insert_at" />
+        <result property="insertBy" column="insert_by" />
+        <result property="updateAt" column="update_at" />
+        <result property="updateBy" column="update_by" />
+    </resultMap>
+
+    <select id="getList" resultMap="Salary">
+        select
+            *
+        from
+            salary
+    </select>
+
+    <insert id="createSalary" parameterType="com.portfolio.hris.salary.SalaryDAO">
+        insert into salary(
+            ueid,
+            salary_type,
+            payment_date,
+            base_salary,
+            performance_bonus,
+            special_bonus,
+            insert_at,
+            insert_by
+        ) values (
+            #{ueid},
+            #{salaryType},
+            #{paymentDate},
+            #{baseSalary},
+            #{performanceBonus},
+            #{specialBonus},
+            #{insertAt},
+            #{insertBy}
+        )
+    </insert>
+
+    <select id="getSalaryByUeid" parameterType="String">
+        select
+            *
+        from
+            salary
+        where
+            ueid = #{ueid}
+    </select>
+
+    <update id="updateSalaryInformation" parameterType="com.portfolio.hris.salary.SalaryDAO">
+        update
+            salary
+        set
+            salary_type = #{salaryType},
+            payment_date = #{paymentDate},
+            base_salary = #{baseSalary},
+            performance_bonus = #{performanceBonus},
+            special_bonus = #{specialBonus},
+            update_at = #{updateAt},
+            update_by = #{updateBy}
+        where
+            ueid = #{ueid}
+    </update>
+
+</mapper>
