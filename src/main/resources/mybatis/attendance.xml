@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.portfolio.hris.attendance.AttendanceMapper">
+
+    <resultMap id="Attendance" type="com.portfolio.hris.attendance.AttendanceDAO">
+        <id property="ueid" column="ueid" />
+        <id property="attendanceDate" column="attendance_date" />
+        <result property="attendanceDay" column="attendance_day" />
+        <result property="arrivalTime" column="arrival_time" />
+        <result property="departureTime" column="departure_time" />
+        <result property="remarks" column="remarks" />
+        <result property="insertAt" column="insert_at" />
+        <result property="insertBy" column="insert_by" />
+        <result property="updateAt" column="update_at" />
+        <result property="updateBy" column="update_by" />
+    </resultMap>
+
+    <select id="getList" resultMap="Attendance">
+        select
+            *
+        from
+            attendance
+    </select>
+
+    <insert id="createAttendance" parameterType="com.portfolio.hris.attendance.AttendanceDAO">
+        insert into attendance(
+            ueid,
+            attendance_date,
+            attendance_day,
+            arrival_time,
+            departure_time,
+            remarks,
+            insert_at,
+            insert_by
+        ) values (
+            #{ueid},
+            #{attendanceDate},
+            #{attendanceDay},
+            #{arrivalTime},
+            #{departureTime},
+            #{remarks},
+            #{insertAt},
+            #{insertBy}
+        )
+    </insert>
+
+    <select id="getAttendanceByUeidAndAttendanceDate" parameterType="String">
+        select
+            *
+        from
+            attendance
+        where
+            ueid = #{ueid}
+        and
+            attendance_date = #{attendanceDate}
+    </select>
+
+    <update id="updateAttendanceInformation" parameterType="com.portfolio.hris.attendance.AttendanceDAO">
+        update
+            attendance
+        set
+            attendance_day = #{attendanceDay},
+            arrival_time = #{arrivalTime},
+            departure_time = #{departureTime},
+            remarks = #{remarks},
+            update_at = #{updateAt},
+            update_by = #{updateBy}
+        where
+            ueid = #{ueid}
+        and
+            attendance_date = #{attendanceDate}
+    </update>
+
+</mapper>
