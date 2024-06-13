@@ -83,7 +83,7 @@ create table evaluation(
 create table vacation(
     ueid char(4) comment '직원 고유 식별자',
     seq int auto_increment comment '순번',
-    vacation_type_code char(1) comment '휴가 종류',
+    vacation_type char(1) comment '휴가 종류',
     start_date char(8) comment '시작 날짜',
     end_date char(8) comment '종료 날짜',
     using_days int comment '사용 일수',
