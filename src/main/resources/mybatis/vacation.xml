@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.portfolio.hris.vacation.VacationMapper">
+
+    <resultMap id="Vacation" type="com.portfolio.hris.vacation.VacationDAO">
+        <id property="ueid" column="ueid" />
+        <id property="seq" column="seq" />
+        <result property="vacationType" column="vacation_type" />
+        <result property="startDate" column="start_date" />
+        <result property="endDate" column="end_date" />
+        <result property="usingDays" column="using_days" />
+        <result property="remainingDays" column="remaining_days" />
+        <result property="vacationPurpose" column="vacation_purpose" />
+        <result property="approvalResponsibility" column="approval_responsibility" />
+        <result property="vacationRequestDate" column="vacation_request_date" />
+        <result property="vacationApprovalDate" column="vacation_approval_date" />
+        <result property="insertAt" column="insert_at" />
+        <result property="insertBy" column="insert_by" />
+        <result property="updateAt" column="update_at" />
+        <result property="updateBy" column="update_by" />
+    </resultMap>
+
+    <select id="getList" resultMap="Vacation">
+        select
+            *
+        from
+            vacation
+    </select>
+
+    <insert id="createVacation" parameterType="com.portfolio.hris.vacation.VacationDAO">
+        insert into vacation(
+            ueid,
+            vacation_type,
+            start_date,
+            end_date,
+            using_days,
+            remaining_days,
+            vacation_purpose,
+            approval_responsibility,
+            vacation_request_date,
+            vacation_approval_date,
+            insert_at,
+            insert_by
+        ) values (
+            #{ueid},
+            #{vacationType},
+            #{startDate},
+            #{endDate},
+            #{usingDays},
+            #{remainingDays},
+            #{vacationPurpose},
+            #{approvalResponsibility},
+            #{vacationRequestDate},
+            #{vacationApprovalDate},
+            #{insertAt},
+            #{insertBy}
+        )
+    </insert>
+
+    <select id="getVacationByUeidAndSeq" parameterType="String">
+        select
+            *
+        from
+            vacation
+        where
+            ueid = #{ueid}
+        and
+            seq = #{seq}
+    </select>
+
+    <update id="updateVacationInformation" parameterType="com.portfolio.hris.vacation.VacationDAO">
+        update
+            vacation
+        set
+            vacation_type = #{vacationType},
+            start_date = #{startDate},
+            end_date = #{endDate},
+            using_days = #{usingDays},
+            remaining_days = #{remainingDays},
+            vacation_purpose = #{vacationPurpose},
+            approval_responsibility = #{approvalResponsibility},
+            vacation_request_date = #{vacationRequestDate},
+            vacation_approval_date = #{vacationApprovalDate},
+            update_at = #{updateAt},
+            update_by = #{updateBy}
+        where
+            ueid = #{ueid}
+        and
+            seq = #{seq}
+    </update>
+
+</mapper>
