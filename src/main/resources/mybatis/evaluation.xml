@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.portfolio.hris.evaluation.EvaluationMapper">
+
+    <resultMap id="Evaluation" type="com.portfolio.hris.evaluation.EvaluationDAO">
+        <id property="ueid" column="ueid" />
+        <id property="seq" column="seq" />
+        <result property="evaluationStartDate" column="evaluation_start_date" />
+        <result property="evaluationEndDate" column="evaluation_end_date" />
+        <result property="evaluationItem" column="evaluation_item" />
+        <result property="evaluationResult" column="evaluation_result" />
+        <result property="evaluationComment" column="evaluation_comment" />
+        <result property="evaluationResponsibility" column="evaluation_responsibility" />
+        <result property="insertAt" column="insert_at" />
+        <result property="insertBy" column="insert_by" />
+        <result property="updateAt" column="update_at" />
+        <result property="updateBy" column="update_by" />
+    </resultMap>
+
+    <select id="getList" resultMap="Evaluation">
+        select
+            *
+        from
+            evaluation
+    </select>
+
+    <insert id="createEvaluation" parameterType="com.portfolio.hris.evaluation.EvaluationDAO">
+        insert into evaluation(
+            ueid,
+            evaluation_start_date,
+            evaluation_end_date,
+            evaluation_item,
+            evaluation_result,
+            evaluation_comment,
+            evaluation_responsibility,
+            insert_at,
+            insert_by
+        ) values (
+            #{ueid},
+            #{evaluationStartDate},
+            #{evaluationEndDate},
+            #{evaluationItem},
+            #{evaluationResult},
+            #{evaluationComment},
+            #{evaluationResponsibility},
+            #{insertAt},
+            #{insertBy}
+        )
+    </insert>
+
+    <select id="getEvaluationByUeidAndSeq" parameterType="String">
+        select
+            *
+        from
+            evaluation
+        where
+            ueid = #{ueid}
+        and
+            seq = #{seq}
+    </select>
+
+    <update id="updateEvaluationInformation" parameterType="com.portfolio.hris.evaluation.EvaluationDAO">
+        update
+            evaluation
+        set
+            evaluation_start_date = #{evaluationStartDate},
+            evaluation_end_date = #{evaluationEndDate},
+            evaluation_item = #{evaluationItem},
+            evaluation_result = #{evaluationResult},
+            evaluation_comment = #{evaluationComment},
+            evaluation_responsibility = #{evaluationResponsibility},
+            update_at = #{updateAt},
+            update_by = #{updateBy}
+        where
+            ueid = #{ueid}
+          and
+            seq = #{seq}
+    </update>
+
+</mapper>
