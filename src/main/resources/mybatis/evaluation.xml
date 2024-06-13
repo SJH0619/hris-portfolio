@@ -73,7 +73,7 @@
             update_by = #{updateBy}
         where
             ueid = #{ueid}
-          and
+        and
             seq = #{seq}
     </update>
 
