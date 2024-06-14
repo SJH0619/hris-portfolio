@@ -21,6 +21,11 @@ public class EmployeeController {
         return "/employee/list";
     }
 
+    @GetMapping("/create")
+    public String createEmployee() {
+        return "/employee/create";
+    }
+
     @PostMapping("/create")
     public String createEmployee(EmployeeDTO employeeDTO) {
         employeeService.createEmployee(employeeDTO);
