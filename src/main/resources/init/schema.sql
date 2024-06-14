@@ -8,7 +8,7 @@ drop table if exists attendance;
 
 create table employee(
     ueid char(4) primary key comment '직원 고유 식별자',
-    employee_id char(12) unique comment '직원 사번',
+    employee_id char(12) unique comment '사원 번호',
     password char(80) not null comment '비밀번호',
     name char(37) not null comment '이름',
     gender char(1) not null comment '성별',
