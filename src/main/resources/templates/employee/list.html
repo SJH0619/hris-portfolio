@@ -6,8 +6,37 @@
     <title>
         사원 리스트
     </title>
+    <link th:href="@{/css/employee/list.css}" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <h1>사원 리스트</h1>
+<table>
+    <thead>
+    <tr>
+        <th>사원 번호</th>
+        <th>이름</th>
+        <th>개인 전화번호</th>
+        <th>사내 외부번호</th>
+        <th>사내 내선번호</th>
+        <th>사내 이메일 주소</th>
+        <th>부서</th>
+        <th>직급</th>
+        <th>근무 유형</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="employee : ${employeeList}">
+        <td th:text="${employee.employeeId}"></td>
+        <td th:text="${employee.name}"></td>
+        <td th:text="${employee.personalPhoneNumber}"></td>
+        <td th:text="${employee.externalTellNumber}"></td>
+        <td th:text="${employee.internalTellNumber}"></td>
+        <td th:text="${employee.companyEmailAddress}"></td>
+        <td th:text="${employee.departmentCode}"></td>
+        <td th:text="${employee.positionCode}"></td>
+        <td th:text="${employee.employmentType}"></td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>
