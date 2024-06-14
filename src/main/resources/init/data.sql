@@ -1,5 +1,35 @@
 insert into employee(
-    ueid, employee_id, password, name, gender, birth, insert_at, insert_by
+    ueid,
+    employee_id,
+    password,
+    name,
+    gender,
+    birth,
+    personal_phone_number,
+    external_tell_number,
+    internal_tell_number,
+    company_email_address,
+    department_code,
+    position_code,
+    join_date,
+    employment_type,
+    insert_at,
+    insert_by
 ) values (
-    '0000', '000000000000', '0000000', '관리자', 'M', '19960619', '20240610', '시스템'
+    '0000',
+    '000000000000',
+    '0000000',
+    '관리자',
+    'M',
+    '19960619',
+    '01047653658',
+    '0222483652',
+    '001',
+    'idiotGuy0619@test.com',
+    '00',
+    '00',
+    '20240610',
+    '0',
+    '20240610',
+    '시스템'
 );
