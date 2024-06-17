@@ -21,6 +21,11 @@ public class PositionController {
         return "/position/list";
     }
 
+    @GetMapping("/create")
+    public String createPosition() {
+        return "/position/create";
+    }
+
     @PostMapping("/create")
     public String createPosition(PositionDTO positionDTO) {
         positionService.createPosition(positionDTO);
