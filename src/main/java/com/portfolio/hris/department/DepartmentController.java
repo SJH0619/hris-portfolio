@@ -21,6 +21,11 @@ public class DepartmentController {
         return "/department/list";
     }
 
+    @GetMapping("/create")
+    public String createDepartment() {
+        return "/department/create";
+    }
+
     @PostMapping("/create")
     public String createDepartment(DepartmentDTO departmentDTO) {
         departmentService.createDepartment(departmentDTO);

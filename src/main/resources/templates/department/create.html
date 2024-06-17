@@ -1,0 +1,39 @@
+<!DOCTYPE>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+        부서 생성
+    </title>
+</head>
+<body>
+<h1>부서 생성</h1>
+<form th:action="@{/department/create}" method="post">
+    <div>
+        <label for="departmentCode">부서 코드</label>
+        <input type="text" id="departmentCode" />
+    </div>
+    <div>
+        <label for="departmentName">부서명</label>
+        <input type="text" id="departmentName" />
+    </div>
+    <div>
+        <label for="parentDepartmentCode">상위 부서 코드</label>
+        <input type="text" id="parentDepartmentCode" />
+    </div>
+    <div>
+        <label for="departmentManagerUeid">부서장</label>
+        <input type="text" id="departmentManagerUeid" />
+    </div>
+    <div>
+        <label for="foundationDate">설립일</label>
+        <input type="date" id="foundationDate" />
+    </div>
+    <div>
+        <input type="submit" value="생성" />
+    </div>
+</form>
+<script type="text/javascript" th:src="@{/js/department/create.js}"></script>
+</body>
+</html>
