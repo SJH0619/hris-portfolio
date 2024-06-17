@@ -1,0 +1,30 @@
+<!DOCTYPE>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+        근무 유형 생성
+    </title>
+</head>
+<body>
+<h1>근무 유형 생성</h1>
+<form th:action="@{/employment/create}" method="post">
+    <div>
+        <label for="employmentType">근무 유형 코드</label>
+        <input type="text" id="employmentType" />
+    </div>
+    <div>
+        <label for="employmentName">근무 유형명</label>
+        <input type="text" id="employmentName" />
+    </div>
+    <div>
+        <label for="employmentComment">부가 설명</label>
+        <input type="text" id="employmentComment" />
+    </div>
+    <div>
+        <input type="submit" value="생성" />
+    </div>
+</form>
+</body>
+</html>

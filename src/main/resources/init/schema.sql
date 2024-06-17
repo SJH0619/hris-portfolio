@@ -30,6 +30,16 @@ create table employee(
     update_by char(4) comment '수정자'
 );
 
+create table employment(
+    employment_type char(1) primary key comment '근무 유형',
+    employment_name char(15) not null comment '근무 유형명',
+    employment_comment text comment '부가 설명',
+    insert_at char(14) not null comment '생성일',
+    insert_by char(4) not null comment '생성자',
+    update_at char(14) comment '수정일',
+    update_by char(4) comment '수정자'
+);
+
 create table department(
     department_code char(2) primary key comment '부서 코드',
     department_name char(15) not null comment '부서명',
