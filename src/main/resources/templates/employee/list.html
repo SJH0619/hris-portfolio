@@ -4,14 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>
-        사원 리스트
+        사원 목록
     </title>
     <link th:href="@{/css/employee/list.css}" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<h1>사원 리스트</h1>
+<h1>사원 목록</h1>
 <button type="button" onclick="location.href='/employee/create'">사원 생성</button>
+<button type="button" onclick="location.href='/department/list'">부서 목록</button>
 <button type="button" onclick="location.href='/department/create'">부서 생성</button>
+<button type="button" onclick="location.href='/position/list'">직급 목록</button>
 <button type="button" onclick="location.href='/position/create'">직급 생성</button>
 <table>
     <thead>
