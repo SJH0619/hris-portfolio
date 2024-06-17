@@ -44,11 +44,17 @@
     </div>
     <div>
         <label for="departmentCode">부서</label>
-        <input type="text" id="departmentCode" />
+        <select id="departmentCode">
+            <option value="">부서를 선택해주세요.</option>
+            <option th:each="department:${departmentList}" th:value="${department.departmentCode}" th:text="${department.departmentName}"></option>
+        </select>
     </div>
     <div>
         <label for="positionCode">직급</label>
-        <input type="text" id="positionCode" />
+        <select id="positionCode">
+            <option value="">직급을 선택해주세요.</option>
+            <option th:each="position:${positionList}" th:value="${position.positionCode}" th:text="${position.positionName}"></option>
+        </select>
     </div>
     <div>
         <label for="joinDate">입사일</label>
@@ -56,7 +62,10 @@
     </div>
     <div>
         <label for="employmentType">근무 유형</label>
-        <input type="text" id="employmentType" />
+        <select id="employmentType">
+            <option value="">근무 유형을 선택해주세요.</option>
+            <option th:each="employment:${employmentList}" th:value="${employment.employmentType}" th:text="${employment.employmentName}"></option>
+        </select>
     </div>
     <div>
         <input type="submit" value="생성" />

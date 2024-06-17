@@ -1,5 +1,8 @@
 package com.portfolio.hris.employee;
 
+import com.portfolio.hris.department.DepartmentService;
+import com.portfolio.hris.employment.EmploymentService;
+import com.portfolio.hris.position.PositionService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequiredArgsConstructor
 public class EmployeeController {
     private final EmployeeService employeeService;
+    private final DepartmentService departmentService;
+    private final PositionService positionService;
+    private final EmploymentService employmentService;
 
     @GetMapping("/list")
     public String getEmployeeList(Model model) {
@@ -22,7 +28,11 @@ public class EmployeeController {
     }
 
     @GetMapping("/create")
-    public String createEmployee() {
+    public String createEmployee(Model model) {
+        model.addAttribute("departmentList", departmentService.getList());
+        model.addAttribute("positionList", positionService.getList());
+        model.addAttribute("employmentList", employmentService.getList());
+
         return "/employee/create";
     }
 
