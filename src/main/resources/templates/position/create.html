@@ -1,0 +1,26 @@
+<!DOCTYPE>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+        직급 생성
+    </title>
+</head>
+<body>
+<h1>직급 생성</h1>
+<form th:action="@{/position/create}" method="post">
+    <div>
+        <label for="positionCode">직급 코드</label>
+        <input type="text" id="positionCode" />
+    </div>
+    <div>
+        <label for="positionName">직급명</label>
+        <input type="text" id="positionName" />
+    </div>
+    <div>
+        <input type="submit" value="생성" />
+    </div>
+</form>
+</body>
+</html>
