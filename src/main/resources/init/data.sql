@@ -33,3 +33,33 @@ insert into employee(
     '20240610',
     '시스템'
 );
+
+insert into department(
+    department_code,
+    department_name,
+    parent_department_code,
+    department_manager_ueid,
+    foundation_date,
+    insert_at,
+    insert_by
+) values (
+    '00',
+    '개발부',
+    null,
+    '0000',
+    '20240610',
+    '20240610',
+    '시스템'
+);
+
+insert into position(
+    position_code,
+    position_name,
+    insert_at,
+    insert_by
+) values (
+    '00',
+    '사원',
+    '20240610',
+    '시스템'
+);
