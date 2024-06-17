@@ -63,3 +63,17 @@ insert into position(
     '20240610',
     '시스템'
 );
+
+insert into employment(
+    employment_type,
+    employment_name,
+    employment_comment,
+    insert_at,
+    insert_by
+) values (
+    '0',
+    '정규직',
+    '정식 계약이 완료된 정규직을 의미합니다.',
+    '20240610',
+    '시스템'
+);
