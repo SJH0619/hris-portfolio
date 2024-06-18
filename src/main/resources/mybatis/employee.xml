@@ -51,7 +51,6 @@
             join_date,
             resign_date,
             employment_type,
-            remaining_days,
             insert_at,
             insert_by
         ) values (
@@ -71,7 +70,6 @@
             #{joinDate},
             #{resignDate},
             #{employmentType},
-            #{remainingDays},
             #{insertAt},
             #{insertBy}
         )

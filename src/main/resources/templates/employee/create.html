@@ -12,57 +12,61 @@
 <form th:action="@{/employee/create}" method="post">
     <div>
         <label for="name">이름</label>
-        <input type="text" id="name" />
+        <input type="text" id="name" name="name" />
     </div>
     <div>
         <label for="gender">성별</label>
-        <input type="text" id="gender" />
+        <select id="gender" name="gender">
+            <option value="">성별을 선택해주세요.</option>
+            <option value="M">남성</option>
+            <option value="F">여성</option>
+        </select>
     </div>
     <div>
         <label for="birth">생년월일</label>
-        <input type="date" id="birth" />
+        <input type="date" id="birth" name="birth" />
     </div>
     <div>
         <label for="personalPhoneNumber">개인 전화번호</label>
-        <input type="text" id="personalPhoneNumber" />
+        <input type="text" id="personalPhoneNumber" name="personalPhoneNumber" />
     </div>
     <div>
         <label for="externalTellNumber">사내 외부번호</label>
-        <input type="text" id="externalTellNumber" />
+        <input type="text" id="externalTellNumber" name="externalTellNumber" />
     </div>
     <div>
         <label for="internalTellNumber">사내 내선번호</label>
-        <input type="text" id="internalTellNumber" />
+        <input type="text" id="internalTellNumber" name="internalTellNumber" />
     </div>
     <div>
         <label for="personalEmailAddress">개인 이메일 주소</label>
-        <input type="text" id="personalEmailAddress" />
+        <input type="text" id="personalEmailAddress" name="personalEmailAddress" />
     </div>
     <div>
         <label for="companyEmailAddress">사내 이메일 주소</label>
-        <input type="text" id="companyEmailAddress" />
+        <input type="text" id="companyEmailAddress" name="companyEmailAddress"/>
     </div>
     <div>
         <label for="departmentCode">부서</label>
-        <select id="departmentCode">
+        <select id="departmentCode" name="departmentCode">
             <option value="">부서를 선택해주세요.</option>
             <option th:each="department:${departmentList}" th:value="${department.departmentCode}" th:text="${department.departmentName}"></option>
         </select>
     </div>
     <div>
         <label for="positionCode">직급</label>
-        <select id="positionCode">
+        <select id="positionCode" name="positionCode">
             <option value="">직급을 선택해주세요.</option>
             <option th:each="position:${positionList}" th:value="${position.positionCode}" th:text="${position.positionName}"></option>
         </select>
     </div>
     <div>
         <label for="joinDate">입사일</label>
-        <input type="date" id="joinDate" />
+        <input type="date" id="joinDate" name="joinDate" />
     </div>
     <div>
         <label for="employmentType">근무 유형</label>
-        <select id="employmentType">
+        <select id="employmentType" name="employmentType">
             <option value="">근무 유형을 선택해주세요.</option>
             <option th:each="employment:${employmentList}" th:value="${employment.employmentType}" th:text="${employment.employmentName}"></option>
         </select>
