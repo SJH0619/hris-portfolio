@@ -1,10 +1,9 @@
 package com.portfolio.hris.department;
 
+import com.portfolio.hris.util.TimeUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import com.portfolio.hris.util.TimeUtil;
 
 import java.util.ArrayList;
 import java.util.List;
