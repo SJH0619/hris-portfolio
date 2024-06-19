@@ -4,6 +4,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.portfolio.hris.util.TimeUtil;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,6 +13,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class DepartmentServiceImpl implements DepartmentService {
     private final DepartmentMapper departmentMapper;
+    private final TimeUtil timeUtil;
 
     @Override
     @Transactional(readOnly = true)
@@ -26,6 +29,10 @@ public class DepartmentServiceImpl implements DepartmentService {
     @Override
     @Transactional
     public void createDepartment(DepartmentDTO departmentDTO) {
+        departmentDTO.setFoundationDate(departmentDTO.getFoundationDate().replace("-", ""));
+        departmentDTO.setInsertAt(timeUtil.nowDateTimeString());
+        departmentDTO.setInsertBy("시스템"); // TODO 나중에 변경 필요
+
         DepartmentDAO departmentDAO = DepartmentDAO.applyDepartmentDTO(departmentDTO);
 
         departmentMapper.createDepartment(departmentDAO);
