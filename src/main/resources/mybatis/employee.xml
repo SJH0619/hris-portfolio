@@ -28,9 +28,29 @@
 
     <select id="getList" resultMap="Employee">
         select
-            *
+            e.employee_id,
+            e.name,
+            e.personal_phone_number,
+            e.external_tell_number,
+            e.internal_tell_number,
+            e.company_email_address,
+            d.department_name as department_code,
+            p.position_name as position_code,
+            emp.employment_name as employment_type,
         from
-            employee
+            employee as e
+        inner join
+            department as d
+            on
+            e.department_code = d.department_code
+        inner join
+            position as p
+            on
+            e.position_code = p.position_code
+        inner join
+            employment as emp
+            on
+            e.employment_type = emp.employment_type
     </select>
 
     <insert id="createEmployee" parameterType="com.portfolio.hris.employee.EmployeeDAO">

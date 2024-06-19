@@ -1,10 +1,14 @@
 package com.portfolio.hris.employee;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Getter
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class EmployeeDAO {
     private String ueid;
     private String employeeId;
