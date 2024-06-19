@@ -1,10 +1,14 @@
 package com.portfolio.hris.position;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Getter
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class PositionDAO {
     private String positionCode;
     private String positionName;
