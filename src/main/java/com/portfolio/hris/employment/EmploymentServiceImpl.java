@@ -1,5 +1,6 @@
 package com.portfolio.hris.employment;
 
+import com.portfolio.hris.util.TimeUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,6 +12,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class EmploymentServiceImpl implements EmploymentService {
     private final EmploymentMapper employmentMapper;
+    private final TimeUtil timeUtil;
 
     @Override
     @Transactional(readOnly = true)
@@ -26,6 +28,9 @@ public class EmploymentServiceImpl implements EmploymentService {
     @Override
     @Transactional
     public void createEmployment(EmploymentDTO employmentDTO) {
+        employmentDTO.setInsertAt(timeUtil.nowDateTimeString());
+        employmentDTO.setInsertBy("시스템"); // TODO 나중에 수정
+
         EmploymentDAO employmentDAO = EmploymentDAO.applyEmploymentDTO(employmentDTO);
 
         employmentMapper.createEmployment(employmentDAO);

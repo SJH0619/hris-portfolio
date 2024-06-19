@@ -1,10 +1,14 @@
 package com.portfolio.hris.employment;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Getter
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class EmploymentDAO {
     private String employmentType;
     private String employmentName;
