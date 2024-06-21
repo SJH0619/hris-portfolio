@@ -77,3 +77,17 @@ insert into employment(
     '20240610',
     '시스템'
 );
+
+insert into vacation_type(
+    vacation_type,
+    vacation_type_name,
+    vacation_type_comment,
+    insert_at,
+    insert_by
+) values (
+    '0',
+    '연차',
+    '일반적인 연차를 의미합니다.',
+    '20240610',
+    '시스템'
+);
