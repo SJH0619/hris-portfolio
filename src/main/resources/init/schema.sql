@@ -109,6 +109,16 @@ create table vacation(
     constraint vacation_pk primary key(ueid, seq)
 );
 
+create table vacation_type(
+    vacation_type char(1) primary key comment '휴가 종류',
+    vacation_type_name char(15) not null comment '휴가 종류명',
+    vacation_type_comment text comment '부가 설명',
+    insert_at char(14) not null comment '생성일',
+    insert_by char(4) not null comment '생성자',
+    update_at char(14) comment '수정일',
+    update_by char(4) comment '수정자'
+);
+
 create table attendance(
     ueid char(4) comment '직원 고유 식별자',
     attendance_date char(8) comment '날짜',

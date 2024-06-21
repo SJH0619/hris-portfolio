@@ -1,0 +1,39 @@
+<!DOCTYPE>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+        휴가 종류 목록
+    </title>
+    <link th:href="@{/css/employment/list.css}" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<h1>휴가 종류 목록</h1>
+<button type="button" onclick="location.href='/employee/list'">사원 목록</button>
+<button type="button" onclick="location.href='/employee/create'">사원 생성</button>
+<button type="button" onclick="location.href='/department/list'">부서 목록</button>
+<button type="button" onclick="location.href='/department/create'">부서 생성</button>
+<button type="button" onclick="location.href='/position/list'">직급 목록</button>
+<button type="button" onclick="location.href='/position/create'">직급 생성</button>
+<button type="button" onclick="location.href='/employment/list'">근무 유형 목록</button>
+<button type="button" onclick="location.href='/employment/create'">근무 유형 생성</button>
+<button type="button" onclick="location.href='/vacationType/create'">휴가 종류 생성</button>
+<table>
+    <thead>
+    <tr>
+        <th>휴가 종류</th>
+        <th>휴가 종류명</th>
+        <th>부가 설명</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="vacationType : ${vacationTypeList}">
+        <td th:text="${vacationType.vacationType}"></td>
+        <td th:text="${vacationType.vacationTypeName}"></td>
+        <td th:text="${vacationType.vacationTypeComment}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
