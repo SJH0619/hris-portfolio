@@ -27,6 +27,28 @@
             vacation
     </select>
 
+    <select id="getListByUeid" resultMap="Vacation" parameterType="String">
+        select
+            v.seq,
+            vt.vacation_type as vacation_type,
+            v.start_date,
+            v.end_date,
+            v.using_days,
+            v.remaining_days,
+            v.vacation_purpose,
+            v.approval_responsibility,
+            v.vacation_request_date,
+            v.vacation_approval_date
+        from
+            vacation as v
+        inner join
+            vacation_type as vt
+            on
+            v.vacation_type = vt.vacation_type
+        where
+            v.ueid = #{ueid}
+    </select>
+
     <insert id="createVacation" parameterType="com.portfolio.hris.vacation.VacationDAO">
         insert into vacation(
             ueid,

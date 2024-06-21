@@ -24,6 +24,15 @@
             evaluation
     </select>
 
+    <select id="getListByUeid" resultMap="Evaluation" parameterType="String">
+        select
+            *
+        from
+            evaluation
+        where
+            ueid = #{ueid}
+    </select>
+
     <insert id="createEvaluation" parameterType="com.portfolio.hris.evaluation.EvaluationDAO">
         insert into evaluation(
             ueid,

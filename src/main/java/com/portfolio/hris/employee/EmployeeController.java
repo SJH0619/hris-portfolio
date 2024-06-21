@@ -1,8 +1,12 @@
 package com.portfolio.hris.employee;
 
+import com.portfolio.hris.attendance.AttendanceService;
 import com.portfolio.hris.department.DepartmentService;
 import com.portfolio.hris.employment.EmploymentService;
+import com.portfolio.hris.evaluation.EvaluationService;
 import com.portfolio.hris.position.PositionService;
+import com.portfolio.hris.salary.SalaryService;
+import com.portfolio.hris.vacation.VacationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +23,10 @@ public class EmployeeController {
     private final DepartmentService departmentService;
     private final PositionService positionService;
     private final EmploymentService employmentService;
+    private final SalaryService salaryService;
+    private final EvaluationService evaluationService;
+    private final VacationService vacationService;
+    private final AttendanceService attendanceService;
 
     @GetMapping("/list")
     public String getEmployeeList(Model model) {
@@ -45,7 +53,13 @@ public class EmployeeController {
 
     @GetMapping("/read/{employeeId}")
     public String readEmployee(@PathVariable("employeeId") String employeeId, Model model) {
-        model.addAttribute("employee", employeeService.readEmployee(employeeId));
+        EmployeeDTO employeeDTO = employeeService.readEmployee(employeeId);
+
+        model.addAttribute("employee", employeeDTO);
+        model.addAttribute("salary", salaryService.readSalary(employeeDTO.getUeid()));
+        model.addAttribute("evaluationList", evaluationService.getListByUeid(employeeDTO.getUeid()));
+        model.addAttribute("vacationList", vacationService.getListByUeid(employeeDTO.getUeid()));
+        model.addAttribute("attendanceList", attendanceService.getListByUeid(employeeDTO.getUeid()));
 
         return "/employee/read";
     }

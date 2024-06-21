@@ -8,6 +8,8 @@ import java.util.List;
 public interface AttendanceMapper {
     List<AttendanceDAO> getList();
 
+    List<AttendanceDAO> getListByUeid(String ueid);
+
     void createAttendance(AttendanceDAO attendanceDAO);
 
     AttendanceDAO getAttendanceByUeidAndAttendanceDate(String ueid, String attendanceDate);

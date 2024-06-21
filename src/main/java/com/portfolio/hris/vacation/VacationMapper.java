@@ -8,6 +8,8 @@ import java.util.List;
 public interface VacationMapper {
     List<VacationDAO> getList();
 
+    List<VacationDAO> getListByUeid(String ueid);
+
     void createVacation(VacationDAO vacationDAO);
 
     VacationDAO getVacationByUeidAndSeq(String ueid, int seq);

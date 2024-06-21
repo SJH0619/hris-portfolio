@@ -36,6 +36,10 @@ public class SalaryServiceImpl implements SalaryService {
     public SalaryDTO readSalary(String ueid) {
         SalaryDAO salaryDAO = salaryMapper.getSalaryByUeid(ueid);
 
+        if (salaryDAO == null) {
+            return null;
+        }
+
         return salaryDAO.getSalaryDTO();
     }
 

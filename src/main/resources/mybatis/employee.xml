@@ -53,6 +53,42 @@
             e.employment_type = emp.employment_type
     </select>
 
+    <select id="getEmployeeByEmployeeId" resultMap="Employee" parameterType="String">
+        select
+            e.ueid,
+            e.employee_id,
+            e.name,
+            e.gender,
+            e.birth,
+            e.personal_phone_number,
+            e.external_tell_number,
+            e.internal_tell_number,
+            e.personal_email_address,
+            e.company_email_address,
+            d.department_name as department_code,
+            p.position_name as position_code,
+            e.join_date,
+            e.resign_date,
+            emp.employment_type as employment_type,
+            e.remaining_days,
+        from
+            employee as e
+        inner join
+            department as d
+            on
+            e.department_code = d.department_code
+        inner join
+            position as p
+            on
+            e.position_code = p.position_code
+        inner join
+            employment as emp
+            on
+            e.employment_type = emp.employment_type
+        where
+            e.employee_id = #{employeeId}
+    </select>
+
     <insert id="createEmployee" parameterType="com.portfolio.hris.employee.EmployeeDAO">
         insert into employee(
             ueid,
@@ -94,15 +130,6 @@
             #{insertBy}
         )
     </insert>
-
-    <select id="getEmployeeByEmployeeId" parameterType="String">
-        select
-            *
-        from
-            employee
-        where
-            employee_id = #{employeeId}
-    </select>
 
     <update id="updateEmployeeInformation" parameterType="com.portfolio.hris.employee.EmployeeDAO">
         update

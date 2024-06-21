@@ -24,6 +24,17 @@ public class AttendanceServiceImpl implements AttendanceService {
     }
 
     @Override
+    @Transactional(readOnly = true)
+    public List<AttendanceDTO> getListByUeid(String ueid) {
+        List<AttendanceDAO> resource = attendanceMapper.getListByUeid(ueid);
+        List<AttendanceDTO> result = new ArrayList<>();
+
+        resource.forEach(attendance -> result.add(attendance.getAttendanceDTO()));
+
+        return result;
+    }
+
+    @Override
     @Transactional
     public void createAttendance(AttendanceDTO attendanceDTO) {
         AttendanceDAO attendanceDAO = AttendanceDAO.applyAttendanceDTO(attendanceDTO);

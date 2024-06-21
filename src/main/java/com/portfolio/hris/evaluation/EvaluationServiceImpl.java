@@ -24,6 +24,17 @@ public class EvaluationServiceImpl implements EvaluationService {
     }
 
     @Override
+    @Transactional(readOnly = true)
+    public List<EvaluationDTO> getListByUeid(String ueid) {
+        List<EvaluationDAO> resource = evaluationMapper.getListByUeid(ueid);
+        List<EvaluationDTO> result = new ArrayList<>();
+
+        resource.forEach(evaluation -> result.add(evaluation.getEvaluationDTO()));
+
+        return result;
+    }
+
+    @Override
     @Transactional
     public void createEvaluation(EvaluationDTO evaluationDTO) {
         EvaluationDAO evaluationDAO = EvaluationDAO.applyEvaluationDTO(evaluationDTO);

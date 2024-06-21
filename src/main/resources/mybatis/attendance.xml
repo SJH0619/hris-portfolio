@@ -22,6 +22,15 @@
             attendance
     </select>
 
+    <select id="getListByUeid" resultMap="Attendance" parameterType="String">
+        select
+            *
+        from
+            attendance
+        where
+            ueid = #{ueid}
+    </select>
+
     <insert id="createAttendance" parameterType="com.portfolio.hris.attendance.AttendanceDAO">
         insert into attendance(
             ueid,

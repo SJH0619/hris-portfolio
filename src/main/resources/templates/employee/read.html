@@ -11,7 +11,7 @@
 <body>
 <h1>사원 정보</h1>
 <ul>
-    <li>사원 번호</li>
+    <li th:text="@{|사원 번호: ${employee.employeeId}|}">사원 번호</li>
     <li>이름</li>
     <li>성별</li>
     <li>생년월일</li>

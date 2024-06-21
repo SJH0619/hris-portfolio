@@ -8,6 +8,8 @@ import java.util.List;
 public interface EvaluationMapper {
     List<EvaluationDAO> getList();
 
+    List<EvaluationDAO> getListByUeid(String ueid);
+
     void createEvaluation(EvaluationDAO evaluationDAO);
 
     EvaluationDAO getEvaluationByUeidAndSeq(String ueid, int seq);

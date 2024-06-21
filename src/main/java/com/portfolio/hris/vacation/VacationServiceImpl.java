@@ -24,6 +24,17 @@ public class VacationServiceImpl implements VacationService {
     }
 
     @Override
+    @Transactional(readOnly = true)
+    public List<VacationDTO> getListByUeid(String ueid) {
+        List<VacationDAO> resource = vacationMapper.getListByUeid(ueid);
+        List<VacationDTO> result = new ArrayList<>();
+
+        resource.forEach(vacation -> result.add(vacation.getVacationDTO()));
+
+        return result;
+    }
+
+    @Override
     @Transactional
     public void createVacation(VacationDTO vacationDTO) {
         VacationDAO vacationDAO = VacationDAO.applyVacationDTO(vacationDTO);
