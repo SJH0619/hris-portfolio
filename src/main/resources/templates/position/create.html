@@ -12,11 +12,11 @@
 <form th:action="@{/position/create}" method="post">
     <div>
         <label for="positionCode">직급 코드</label>
-        <input type="text" id="positionCode" />
+        <input type="text" id="positionCode" name="positionCode" />
     </div>
     <div>
         <label for="positionName">직급명</label>
-        <input type="text" id="positionName" />
+        <input type="text" id="positionName" name="positionName" />
     </div>
     <div>
         <input type="submit" value="생성" />
