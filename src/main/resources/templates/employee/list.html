@@ -33,7 +33,7 @@
     </thead>
     <tbody>
     <tr th:each="employee : ${employeeList}">
-        <td th:text="${employee.employeeId}"></td>
+        <td><a th:href="@{|/employee/read/${employee.employeeId}|}" th:text="${employee.employeeId}"></a></td>
         <td th:text="${employee.name}"></td>
         <td th:text="${employee.personalPhoneNumber}"></td>
         <td th:text="${employee.externalTellNumber}"></td>
