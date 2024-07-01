@@ -12,28 +12,28 @@
 <h1>사원 정보</h1>
 <ul>
     <li th:text="@{|사원 번호: ${employee.employeeId}|}">사원 번호</li>
-    <li>이름</li>
-    <li>성별</li>
-    <li>생년월일</li>
-    <li>개인 전화번호</li>
-    <li>사내 외부번호</li>
-    <li>사내 내선번호</li>
-    <li>개인 이메일 주소</li>
-    <li>사내 이메일 주소</li>
-    <li>부서</li>
-    <li>직급</li>
-    <li>입사일</li>
-    <li>퇴사일</li>
-    <li>근무 유형</li>
-    <li>남은 연차</li>
+    <li th:text="@{|이름: ${employee.name}|}">이름</li>
+    <li th:text="@{|성별: ${employee.gender}|}">성별</li>
+    <li th:text="@{|생년월일: ${employee.birth}|}">생년월일</li>
+    <li th:text="@{|개인 전화번호: ${employee.personalPhoneNumber}|}">개인 전화번호</li>
+    <li th:text="@{|사내 외부번호: ${employee.externalTellNumber}|}">사내 외부번호</li>
+    <li th:text="@{|사내 전화번호: ${employee.internalTellNumber}|}">사내 내선번호</li>
+    <li th:text="@{|개인 이메일 주소: ${employee.personalEmailAddress}|}">개인 이메일 주소</li>
+    <li th:text="@{|사내 이메일 주소: ${employee.companyEmailAddress}|}">사내 이메일 주소</li>
+    <li th:text="@{|부서: ${employee.departmentCode}|}">부서</li>
+    <li th:text="@{|직급: ${employee.positionCode}|}">직급</li>
+    <li th:text="@{|입사일: ${employee.joinDate}|}">입사일</li>
+    <li th:text="@{|퇴사일: ${employee.resignDate}|}">퇴사일</li>
+    <li th:text="@{|근무 유형: ${employee.employmentType}|}">근무 유형</li>
+    <li th:text="@{|남은 연차: ${employee.remainingDays}|}">남은 연차</li>
 </ul>
 <h1>급여 정보</h1>
 <ul>
-    <li>급여 지급 유형</li>
-    <li>급여 지급일</li>
-    <li>기본급</li>
-    <li>성과급</li>
-    <li>특수급</li>
+    <li th:text="@{|급여 지급 유형: ${salary.salaryType}|}">급여 지급 유형</li>
+    <li th:text="@{|급여 지급일: ${salary.paymentDate}|}">급여 지급일</li>
+    <li th:text="@{|기본급: ${salary.baseSalary}|}">기본급</li>
+    <li th:text="@{|성과급: ${salary.performanceBonus}|}">성과급</li>
+    <li th:text="@{|특수급: ${salary.specialBonus}|}">특수급</li>
 </ul>
 <h1>성과 정보</h1>
 <table>
@@ -49,14 +49,14 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
+    <tr th:each="evaluation : ${evaluationList}">
+        <th th:text="@{|순번: ${evaluation.seq}|}"></th>
+        <th th:text="@{|성과 평가 시작 날짜: ${evaluation.evaluationStartDate}|}"></th>
+        <th th:text="@{|성과 평가 종료 날짜: ${evaluation.evaluationEndDate}|}"></th>
+        <th th:text="@{|성과 평가 항목: ${evaluation.evaluationItem}|}"></th>
+        <th th:text="@{|성과 평가 결과: ${evaluation.evaluationResult}|}"></th>
+        <th th:text="@{|성과 평가 비고: ${evaluation.evaluationComment}|}"></th>
+        <th th:text="@{|성과 평가자: ${evaluation.evaluationResponsibility}|}"></th>
     </tr>
     </tbody>
 </table>
@@ -77,17 +77,17 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
+    <tr th:each="vacation : ${vacationList}">
+        <th th:text="@{|순번: ${vacation.seq}|}"></th>
+        <th th:text="@{|휴가 종류: ${vacation.vacationType}|}"></th>
+        <th th:text="@{|시작 날짜: ${vacation.startDate}|}"></th>
+        <th th:text="@{|종료 날짜: ${vacation.endDate}|}"></th>
+        <th th:text="@{|사용 일수: ${vacation.usingDays}|}"></th>
+        <th th:text="@{|잔여 일수: ${vacation.remainingDays}|}"></th>
+        <th th:text="@{|휴가 목적: ${vacation.vacationPurpose}|}"></th>
+        <th th:text="@{|승인자: ${vacation.approvalResponsibility}|}"></th>
+        <th th:text="@{|휴가 신청 날짜: ${vacation.vacationRequestDate}|}"></th>
+        <th th:text="@{|휴가 승인 날짜: ${vacation.vacationApprovalDate}|}"></th>
     </tr>
     </tbody>
 </table>
@@ -103,12 +103,12 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
+    <tr th:each="attendance : ${attendanceList}">
+        <th th:text="@{|날짜: ${attendance.attendanceDate}|}"></th>
+        <th th:text="@{|요일: ${attendance.attendanceDay}|}"></th>
+        <th th:text="@{|출근 시각: ${attendance.arrivalTime}|}"></th>
+        <th th:text="@{|퇴근 시각: ${attendance.departureTime}|}"></th>
+        <th th:text="@{|비고: ${attendance.remarks}|}"></th>
     </tr>
     </tbody>
 </table>
