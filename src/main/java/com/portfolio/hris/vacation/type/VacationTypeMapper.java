@@ -1,6 +1,5 @@
-package com.portfolio.hris.vacationtype;
+package com.portfolio.hris.vacation.type;
 
-import com.portfolio.hris.vacation.VacationDAO;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

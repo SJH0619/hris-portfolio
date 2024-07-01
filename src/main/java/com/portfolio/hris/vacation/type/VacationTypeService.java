@@ -1,4 +1,4 @@
-package com.portfolio.hris.vacationtype;
+package com.portfolio.hris.vacation.type;
 
 import java.util.List;
 
