@@ -91,3 +91,23 @@ insert into vacation_type(
     '20240610',
     '시스템'
 );
+
+insert into salary(
+    ueid,
+    salary_type,
+    payment_date,
+    base_salary,
+    performance_bonus,
+    special_bonus,
+    insert_at,
+    insert_by
+) values (
+    '0000',
+    '0',
+    '32',
+    2000000,
+    0,
+    0,
+    '20240610',
+    '시스템'
+);
