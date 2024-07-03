@@ -32,9 +32,28 @@
     <li th:text="@{|급여 지급 유형: ${salary.salaryType}|}">급여 지급 유형</li>
     <li th:text="@{|급여 지급일: ${salary.paymentDate}|}">급여 지급일</li>
     <li th:text="@{|기본급: ${salary.baseSalary}|}">기본급</li>
-    <li th:text="@{|성과급: ${salary.performanceBonus}|}">성과급</li>
-    <li th:text="@{|특수급: ${salary.specialBonus}|}">특수급</li>
 </ul>
+<h1>급여 지급 내역</h1>
+<table>
+    <thead>
+    <tr>
+        <th>순번</th>
+        <th>기본급</th>
+        <th>성과급</th>
+        <th>특수급</th>
+        <th>비고</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="salaryHistroy : ${salaryHistoryList}">
+        <th th:text="${salaryHistory.seq}"></th>
+        <th th:text="${salaryHistory.baseSalary}"></th>
+        <th th:text="${salaryHistory.performanceBonus}"></th>
+        <th th:text="${salaryHistory.specialBonus}"></th>
+        <th th:text="${salaryHistory.salaryComment}"></th>
+    </tr>
+    </tbody>
+</table>
 <h1>성과 정보</h1>
 <table>
     <thead>
@@ -50,13 +69,13 @@
     </thead>
     <tbody>
     <tr th:each="evaluation : ${evaluationList}">
-        <th th:text="@{|순번: ${evaluation.seq}|}"></th>
-        <th th:text="@{|성과 평가 시작 날짜: ${evaluation.evaluationStartDate}|}"></th>
-        <th th:text="@{|성과 평가 종료 날짜: ${evaluation.evaluationEndDate}|}"></th>
-        <th th:text="@{|성과 평가 항목: ${evaluation.evaluationItem}|}"></th>
-        <th th:text="@{|성과 평가 결과: ${evaluation.evaluationResult}|}"></th>
-        <th th:text="@{|성과 평가 비고: ${evaluation.evaluationComment}|}"></th>
-        <th th:text="@{|성과 평가자: ${evaluation.evaluationResponsibility}|}"></th>
+        <th th:text="${evaluation.seq}"></th>
+        <th th:text="${evaluation.evaluationStartDate}"></th>
+        <th th:text="${evaluation.evaluationEndDate}"></th>
+        <th th:text="${evaluation.evaluationItem}"></th>
+        <th th:text="${evaluation.evaluationResult}"></th>
+        <th th:text="${evaluation.evaluationComment}"></th>
+        <th th:text="${evaluation.evaluationResponsibility}"></th>
     </tr>
     </tbody>
 </table>
@@ -78,16 +97,16 @@
     </thead>
     <tbody>
     <tr th:each="vacation : ${vacationList}">
-        <th th:text="@{|순번: ${vacation.seq}|}"></th>
-        <th th:text="@{|휴가 종류: ${vacation.vacationType}|}"></th>
-        <th th:text="@{|시작 날짜: ${vacation.startDate}|}"></th>
-        <th th:text="@{|종료 날짜: ${vacation.endDate}|}"></th>
-        <th th:text="@{|사용 일수: ${vacation.usingDays}|}"></th>
-        <th th:text="@{|잔여 일수: ${vacation.remainingDays}|}"></th>
-        <th th:text="@{|휴가 목적: ${vacation.vacationPurpose}|}"></th>
-        <th th:text="@{|승인자: ${vacation.approvalResponsibility}|}"></th>
-        <th th:text="@{|휴가 신청 날짜: ${vacation.vacationRequestDate}|}"></th>
-        <th th:text="@{|휴가 승인 날짜: ${vacation.vacationApprovalDate}|}"></th>
+        <th th:text="${vacation.seq}"></th>
+        <th th:text="${vacation.vacationType}"></th>
+        <th th:text="${vacation.startDate}"></th>
+        <th th:text="${vacation.endDate}"></th>
+        <th th:text="${vacation.usingDays}"></th>
+        <th th:text="${vacation.remainingDays}"></th>
+        <th th:text="${vacation.vacationPurpose}"></th>
+        <th th:text="${vacation.approvalResponsibility}"></th>
+        <th th:text="${vacation.vacationRequestDate}"></th>
+        <th th:text="${vacation.vacationApprovalDate}"></th>
     </tr>
     </tbody>
 </table>
@@ -104,11 +123,11 @@
     </thead>
     <tbody>
     <tr th:each="attendance : ${attendanceList}">
-        <th th:text="@{|날짜: ${attendance.attendanceDate}|}"></th>
-        <th th:text="@{|요일: ${attendance.attendanceDay}|}"></th>
-        <th th:text="@{|출근 시각: ${attendance.arrivalTime}|}"></th>
-        <th th:text="@{|퇴근 시각: ${attendance.departureTime}|}"></th>
-        <th th:text="@{|비고: ${attendance.remarks}|}"></th>
+        <th th:text="${attendance.attendanceDate}"></th>
+        <th th:text="${attendance.attendanceDay}"></th>
+        <th th:text="${attendance.arrivalTime}"></th>
+        <th th:text="${attendance.departureTime}"></th>
+        <th th:text="${attendance.remarks}"></th>
     </tr>
     </tbody>
 </table>
