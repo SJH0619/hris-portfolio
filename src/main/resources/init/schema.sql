@@ -66,8 +66,28 @@ create table salary(
     salary_type char(1) not null comment '지급 유형',
     payment_date char(2) not null comment '지급일',
     base_salary int comment '기본급',
+    insert_at char(14) not null comment '생성일',
+    insert_by char(4) not null comment '생성자',
+    update_at char(14) comment '수정일',
+    update_by char(4) comment '수정자'
+);
+
+create table salary_history(
+    ueid char(4) comment '직원 고유 식별자',
+    seq int comment '순번',
+    base_salary int comment '기본급',
     performance_bonus int comment '성과급',
     special_bonus int comment '특수급',
+    salary_comment text comment '비고',
+    insert_at char(14) not null comment '생성일',
+    insert_by char(4) not null comment '생성자',
+    update_at char(14) comment '수정일',
+    update_by char(4) comment '수정자'
+);
+
+create table salary_type(
+    salary_type char(1) primary key comment '지급 유형',
+    salary_type_comment text comment '지급 유형 설명',
     insert_at char(14) not null comment '생성일',
     insert_by char(4) not null comment '생성자',
     update_at char(14) comment '수정일',
