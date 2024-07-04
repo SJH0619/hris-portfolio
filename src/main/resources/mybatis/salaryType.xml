@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.portfolio.hris.salary.type.SalaryTypeMapper">
+
+    <resultMap id="SalaryType" type="com.portfolio.hris.salary.type.SalaryTypeDAO">
+        <id property="salaryType" column="salary_type" />
+        <result property="salaryTypeName" column="salary_type_name" />
+        <result property="salaryTypeComment" column="salary_type_comment" />
+        <result property="insertAt" column="insert_at" />
+        <result property="insertBy" column="insert_by" />
+        <result property="updateAt" column="update_at" />
+        <result property="updateBy" column="update_by" />
+    </resultMap>
+
+    <select id="getList" resultMap="SalaryType">
+        select
+            *
+        from
+            salary_type
+    </select>
+
+    <insert id="createSalaryType" parameterType="com.portfolio.hris.salary.type.SalaryTypeDAO">
+        insert into salary_type(
+            salary_type,
+            salary_type_name,
+            salary_type_comment,
+            insert_at,
+            insert_by
+        ) values (
+            #{salaryType},
+            #{salaryTypeName},
+            #{salaryTypeComment},
+            #{insertAt},
+            #{insertBy}
+        )
+    </insert>
+
+    <select id="getSalaryTypeBySalaryType" parameterType="String">
+        select
+            *
+        from
+            salary_type
+        where
+            salary_type = #{salaryType}
+    </select>
+
+    <update id="updateSalaryTypeInformation" parameterType="com.portfolio.hris.salary.type.SalaryTypeDAO">
+        update
+            salary_type
+        set
+            salary_type_name = #{salaryTypeName},
+            salary_type_comment = #{salaryTypeComment},
+            update_at = #{updateAt},
+            update_by = #{updateBy}
+        where
+            salary_type = #{salaryType}
+    </update>
+
+</mapper>

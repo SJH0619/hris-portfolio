@@ -7,8 +7,6 @@
         <result property="salaryType" column="salary_type" />
         <result property="paymentDate" column="payment_date" />
         <result property="baseSalary" column="base_salary" />
-        <result property="performanceBonus" column="performance_bonus" />
-        <result property="specialBonus" column="special_bonus" />
         <result property="insertAt" column="insert_at" />
         <result property="insertBy" column="insert_by" />
         <result property="updateAt" column="update_at" />
@@ -28,8 +26,6 @@
             salary_type,
             payment_date,
             base_salary,
-            performance_bonus,
-            special_bonus,
             insert_at,
             insert_by
         ) values (
@@ -37,8 +33,6 @@
             #{salaryType},
             #{paymentDate},
             #{baseSalary},
-            #{performanceBonus},
-            #{specialBonus},
             #{insertAt},
             #{insertBy}
         )
@@ -60,8 +54,6 @@
             salary_type = #{salaryType},
             payment_date = #{paymentDate},
             base_salary = #{baseSalary},
-            performance_bonus = #{performanceBonus},
-            special_bonus = #{specialBonus},
             update_at = #{updateAt},
             update_by = #{updateBy}
         where

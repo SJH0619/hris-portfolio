@@ -1,0 +1,30 @@
+<!DOCTYPE>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+        급여 유형 생성
+    </title>
+</head>
+<body>
+<h1>급여 유형 생성</h1>
+<form th:action="@{/salaryType/create}" method="post">
+    <div>
+        <label for="salaryType">지급 유형 코드</label>
+        <input type="text" id="salaryType" name="salaryType" />
+    </div>
+    <div>
+        <label for="salaryTypeName">지급 유형명</label>
+        <input type="text" id="salaryTypeName" name="salaryTypeName" />
+    </div>
+    <div>
+        <label for="salaryTypeComment">지급 유형 설명</label>
+        <input type="text" id="salaryTypeComment" name="salaryTypeComment" />
+    </div>
+    <div>
+        <input type="submit" value="생성" />
+    </div>
+</form>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+        사원 정보
+    </title>
+    <link th:href="@{/css/employee/read.css}" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<h1>사원 정보</h1>
+<ul>
+    <li th:text="@{|사원 번호: ${employee.employeeId}|}">사원 번호</li>
+    <li th:text="@{|이름: ${employee.name}|}">이름</li>
+    <li th:text="@{|성별: ${employee.gender}|}">성별</li>
+    <li th:text="@{|생년월일: ${employee.birth}|}">생년월일</li>
+    <li th:text="@{|개인 전화번호: ${employee.personalPhoneNumber}|}">개인 전화번호</li>
+    <li th:text="@{|사내 외부번호: ${employee.externalTellNumber}|}">사내 외부번호</li>
+    <li th:text="@{|사내 전화번호: ${employee.internalTellNumber}|}">사내 내선번호</li>
+    <li th:text="@{|개인 이메일 주소: ${employee.personalEmailAddress}|}">개인 이메일 주소</li>
+    <li th:text="@{|사내 이메일 주소: ${employee.companyEmailAddress}|}">사내 이메일 주소</li>
+    <li th:text="@{|부서: ${employee.departmentCode}|}">부서</li>
+    <li th:text="@{|직급: ${employee.positionCode}|}">직급</li>
+    <li th:text="@{|입사일: ${employee.joinDate}|}">입사일</li>
+    <li th:text="@{|퇴사일: ${employee.resignDate}|}">퇴사일</li>
+    <li th:text="@{|근무 유형: ${employee.employmentType}|}">근무 유형</li>
+    <li th:text="@{|남은 연차: ${employee.remainingDays}|}">남은 연차</li>
+</ul>
+<h1>급여 정보</h1>
+<ul>
+    <li th:text="@{|급여 지급 유형: ${salary.salaryType}|}">급여 지급 유형</li>
+    <li th:text="@{|급여 지급일: ${salary.paymentDate}|}">급여 지급일</li>
+    <li th:text="@{|기본급: ${salary.baseSalary}|}">기본급</li>
+</ul>
+<h1>급여 지급 내역</h1>
+<table>
+    <thead>
+    <tr>
+        <th>순번</th>
+        <th>기본급</th>
+        <th>성과급</th>
+        <th>특수급</th>
+        <th>비고</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="salaryHistroy : ${salaryHistoryList}">
+        <th th:text="${salaryHistory.seq}"></th>
+        <th th:text="${salaryHistory.baseSalary}"></th>
+        <th th:text="${salaryHistory.performanceBonus}"></th>
+        <th th:text="${salaryHistory.specialBonus}"></th>
+        <th th:text="${salaryHistory.salaryComment}"></th>
+    </tr>
+    </tbody>
+</table>
+<h1>성과 정보</h1>
+<table>
+    <thead>
+    <tr>
+        <th>순번</th>
+        <th>성과 평가 시작 날짜</th>
+        <th>성과 평가 종료 날짜</th>
+        <th>성과 평가 항목</th>
+        <th>성과 평가 결과</th>
+        <th>성과 평가 비고</th>
+        <th>성과 평가자</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="evaluation : ${evaluationList}">
+        <th th:text="${evaluation.seq}"></th>
+        <th th:text="${evaluation.evaluationStartDate}"></th>
+        <th th:text="${evaluation.evaluationEndDate}"></th>
+        <th th:text="${evaluation.evaluationItem}"></th>
+        <th th:text="${evaluation.evaluationResult}"></th>
+        <th th:text="${evaluation.evaluationComment}"></th>
+        <th th:text="${evaluation.evaluationResponsibility}"></th>
+    </tr>
+    </tbody>
+</table>
+<h1>휴가 정보</h1>
+<table>
+    <thead>
+    <tr>
+        <th>순번</th>
+        <th>휴가 종류</th>
+        <th>시작 날짜</th>
+        <th>종료 날짜</th>
+        <th>사용 일수</th>
+        <th>잔여 일수</th>
+        <th>휴가 목적</th>
+        <th>승인자</th>
+        <th>휴가 신청 날짜</th>
+        <th>휴가 승인 날짜</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="vacation : ${vacationList}">
+        <th th:text="${vacation.seq}"></th>
+        <th th:text="${vacation.vacationType}"></th>
+        <th th:text="${vacation.startDate}"></th>
+        <th th:text="${vacation.endDate}"></th>
+        <th th:text="${vacation.usingDays}"></th>
+        <th th:text="${vacation.remainingDays}"></th>
+        <th th:text="${vacation.vacationPurpose}"></th>
+        <th th:text="${vacation.approvalResponsibility}"></th>
+        <th th:text="${vacation.vacationRequestDate}"></th>
+        <th th:text="${vacation.vacationApprovalDate}"></th>
+    </tr>
+    </tbody>
+</table>
+<h1>근태 정보</h1>
+<table>
+    <thead>
+    <tr>
+        <th>날짜</th>
+        <th>요일</th>
+        <th>출근 시각</th>
+        <th>퇴근 시각</th>
+        <th>비고</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="attendance : ${attendanceList}">
+        <th th:text="${attendance.attendanceDate}"></th>
+        <th th:text="${attendance.attendanceDay}"></th>
+        <th th:text="${attendance.arrivalTime}"></th>
+        <th th:text="${attendance.departureTime}"></th>
+        <th th:text="${attendance.remarks}"></th>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

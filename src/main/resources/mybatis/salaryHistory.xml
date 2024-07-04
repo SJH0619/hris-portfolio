@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.portfolio.hris.salary.history.SalaryHistoryMapper">
+
+    <resultMap id="SalaryHistory" type="com.portfolio.hris.salary.history.SalaryHistoryDAO">
+        <id property="ueid" column="ueid" />
+        <result property="seq" column="seq" />
+        <result property="baseSalary" column="base_salary" />
+        <result property="performanceBonus" column="performance_bonus" />
+        <result property="specialBonus" column="special_bonus" />
+        <result property="salaryComment" column="salary_comment" />
+        <result property="insertAt" column="insert_at" />
+        <result property="insertBy" column="insert_by" />
+        <result property="updateAt" column="update_at" />
+        <result property="updateBy" column="update_by" />
+    </resultMap>
+
+    <select id="getList" resultMap="SalaryHistory">
+        select
+            *
+        from
+            salary_history
+    </select>
+
+    <insert id="createSalaryHistory" parameterType="com.portfolio.hris.salary.history.SalaryHistoryDAO">
+        insert into salary_history(
+            ueid,
+            seq,
+            base_salary,
+            performance_bonus,
+            special_bonus,
+            salary_comment,
+            insert_at,
+            insert_by
+        ) values (
+            #{ueid},
+            #{seq},
+            #{baseSalary},
+            #{performanceBonus},
+            #{specialBonus},
+            #{salaryComment},
+            #{insertAt},
+            #{insertBy}
+        )
+    </insert>
+
+    <select id="getSalaryHistoryByUeidAndSeq" parameterType="String">
+        select
+            *
+        from
+            salary_history
+        where
+            ueid = #{ueid}
+        and
+            seq = #{seq}
+    </select>
+
+    <update id="updateSalaryHistoryInformation" parameterType="com.portfolio.hris.salary.history.SalaryHistoryDAO">
+        update
+            salary_history
+        set
+            base_salary = #{baseSalary},
+            performance_bonus = #{performanceBonus},
+            special_bonus = #{specialBonus},
+            salary_comment = #{salaryComment},
+            update_at = #{updateAt},
+            update_by = #{updateBy}
+        where
+            ueid = #{ueid}
+        and
+            seq = #{seq}
+    </update>
+
+</mapper>
