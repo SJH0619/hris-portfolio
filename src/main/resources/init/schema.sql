@@ -88,7 +88,7 @@ create table salary_history(
 
 create table salary_type(
     salary_type char(1) primary key comment '지급 유형',
-    salary_type_name char(10) not null comment '지급 유형명',
+    salary_type_name char(15) not null comment '지급 유형명',
     salary_type_comment text comment '지급 유형 설명',
     insert_at char(14) not null comment '생성일',
     insert_by char(4) not null comment '생성자',
