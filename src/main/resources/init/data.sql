@@ -97,8 +97,6 @@ insert into salary(
     salary_type,
     payment_date,
     base_salary,
-    performance_bonus,
-    special_bonus,
     insert_at,
     insert_by
 ) values (
@@ -106,8 +104,6 @@ insert into salary(
     '0',
     '32',
     2000000,
-    0,
-    0,
     '20240610',
     '시스템'
 );
