@@ -21,6 +21,11 @@ public class SalaryTypeController {
         return "/salaryType/list";
     }
 
+    @GetMapping("/create")
+    public String createSalaryType() {
+        return "/salaryType/create";
+    }
+
     @PostMapping("/create")
     public String createSalaryType(SalaryTypeDTO salaryTypeDTO) {
         salaryTypeService.createSalaryType(salaryTypeDTO);
