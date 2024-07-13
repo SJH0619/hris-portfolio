@@ -107,3 +107,17 @@ insert into salary(
     '20240610',
     '시스템'
 );
+
+insert into salary_type(
+    salary_type,
+    salary_type_name,
+    salary_type_comment,
+    insert_at,
+    insert_by
+) values (
+    '0',
+    '연봉제',
+    '연마다 성과에 따라 새로이 조정되는 급여 방식',
+    '20240610',
+    '시스템'
+);
