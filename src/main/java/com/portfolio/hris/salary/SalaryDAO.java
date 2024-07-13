@@ -10,8 +10,6 @@ public class SalaryDAO {
     private String salaryType;
     private String paymentDate;
     private String baseSalary;
-    private String performanceBonus;
-    private String specialBonus;
     private String insertAt;
     private String insertBy;
     private String updateAt;
@@ -23,8 +21,6 @@ public class SalaryDAO {
                 .salaryType(salaryDTO.getSalaryType())
                 .paymentDate(salaryDTO.getPaymentDate())
                 .baseSalary(salaryDTO.getBaseSalary())
-                .performanceBonus(salaryDTO.getPerformanceBonus())
-                .specialBonus(salaryDTO.getSpecialBonus())
                 .insertAt(salaryDTO.getInsertAt())
                 .insertBy(salaryDTO.getInsertBy())
                 .updateAt(salaryDTO.getUpdateAt())
@@ -38,8 +34,6 @@ public class SalaryDAO {
         salaryDTO.setSalaryType(salaryType);
         salaryDTO.setPaymentDate(paymentDate);
         salaryDTO.setBaseSalary(baseSalary);
-        salaryDTO.setPerformanceBonus(performanceBonus);
-        salaryDTO.setSpecialBonus(specialBonus);
         salaryDTO.setInsertAt(insertAt);
         salaryDTO.setInsertBy(insertBy);
         salaryDTO.setUpdateAt(updateAt);

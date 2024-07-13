@@ -8,8 +8,6 @@ public class SalaryDTO {
     public String salaryType;
     public String paymentDate;
     public String baseSalary;
-    public String performanceBonus;
-    public String specialBonus;
     public String insertAt;
     public String insertBy;
     public String updateAt;
