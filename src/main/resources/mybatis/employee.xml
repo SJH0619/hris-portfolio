@@ -69,7 +69,7 @@
             p.position_name as position_code,
             e.join_date,
             e.resign_date,
-            emp.employment_type as employment_type,
+            emp.employment_name as employment_type,
             e.remaining_days,
         from
             employee as e

@@ -15,9 +15,20 @@
 
     <select id="getList" resultMap="Salary">
         select
-            *
+            s.ueid,
+            st.salary_type_name as salary_type,
+            s.payment_date,
+            s.base_salary,
+            s.insert_at,
+            s.insert_by,
+            s.update_at,
+            s.update_by
         from
-            salary
+            salary as s
+        inner join
+            salary_type as st
+            on
+            s.salary_type = st.salary_type
     </select>
 
     <insert id="createSalary" parameterType="com.portfolio.hris.salary.SalaryDAO">
@@ -40,9 +51,20 @@
 
     <select id="getSalaryByUeid" parameterType="String">
         select
-            *
+            s.ueid,
+            st.salary_type_name as salary_type,
+            s.payment_date,
+            s.base_salary,
+            s.insert_at,
+            s.insert_by,
+            s.update_at,
+            s.update_by
         from
-            salary
+            salary as s
+        inner join
+            salary_type as st
+            on
+            s.salary_type = st.salary_type
         where
             ueid = #{ueid}
     </select>

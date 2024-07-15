@@ -13,25 +13,29 @@
 <ul>
     <li th:text="@{|사원 번호: ${employee.employeeId}|}">사원 번호</li>
     <li th:text="@{|이름: ${employee.name}|}">이름</li>
-    <li th:text="@{|성별: ${employee.gender}|}">성별</li>
-    <li th:text="@{|생년월일: ${employee.birth}|}">생년월일</li>
+    <li th:if="${employee.gender == 'F'}" th:text="@{성별: 여자}">성별</li>
+    <li th:if="${employee.gender == 'M'}" th:text="@{성별: 남자}">성별</li>
+    <li th:text="@{|생년월일: ${#strings.substring(employee.birth, 0, 4)}-${#strings.substring(employee.birth, 4, 6)}-${#strings.substring(employee.birth, 6, 8)}|}">생년월일</li>
     <li th:text="@{|개인 전화번호: ${employee.personalPhoneNumber}|}">개인 전화번호</li>
     <li th:text="@{|사내 외부번호: ${employee.externalTellNumber}|}">사내 외부번호</li>
     <li th:text="@{|사내 전화번호: ${employee.internalTellNumber}|}">사내 내선번호</li>
-    <li th:text="@{|개인 이메일 주소: ${employee.personalEmailAddress}|}">개인 이메일 주소</li>
+    <li th:if="${#strings.isEmpty(employee.personalEmailAddress)}" th:text="@{개인 이메일 주소: 정보 없음}">개인 이메일 주소</li>
+    <li th:unless="${#strings.isEmpty(employee.personalEmailAddress)}" th:text="@{|개인 이메일 주소: ${employee.personalEmailAddress}|}">개인 이메일 주소</li>
     <li th:text="@{|사내 이메일 주소: ${employee.companyEmailAddress}|}">사내 이메일 주소</li>
     <li th:text="@{|부서: ${employee.departmentCode}|}">부서</li>
     <li th:text="@{|직급: ${employee.positionCode}|}">직급</li>
-    <li th:text="@{|입사일: ${employee.joinDate}|}">입사일</li>
-    <li th:text="@{|퇴사일: ${employee.resignDate}|}">퇴사일</li>
+    <li th:text="@{|입사일: ${#strings.substring(employee.joinDate, 0, 4)}-${#strings.substring(employee.joinDate, 4, 6)}-${#strings.substring(employee.joinDate, 6, 8)}|}">입사일</li>
+    <li th:if="${#strings.isEmpty(employee.resignDate)}" th:text="@{퇴사일: 정보 없음}">퇴사일</li>
+    <li th:unless="${#strings.isEmpty(employee.resignDate)}" th:text="@{|퇴사일: ${employee.resignDate}|}">퇴사일</li>
     <li th:text="@{|근무 유형: ${employee.employmentType}|}">근무 유형</li>
     <li th:text="@{|남은 연차: ${employee.remainingDays}|}">남은 연차</li>
 </ul>
 <h1>급여 정보</h1>
 <ul>
     <li th:text="@{|급여 지급 유형: ${salary.salaryType}|}">급여 지급 유형</li>
-    <li th:text="@{|급여 지급일: ${salary.paymentDate}|}">급여 지급일</li>
-    <li th:text="@{|기본급: ${salary.baseSalary}|}">기본급</li>
+    <li th:if="${salary.paymentDate == '32'}" th:text="@{급여 지급일: 월말}">급여 지급일</li>
+    <li th:unless="${salary.paymentDate == '32'}" th:text="@{|급여 지급일: ${salary.paymentDate}|}">급여 지급일</li>
+    <li th:text="@{|기본급: ${#numbers.formatInteger(salary.baseSalary, 3, 'COMMA')} 원|}">기본급</li>
 </ul>
 <h1>급여 지급 내역</h1>
 <table>
