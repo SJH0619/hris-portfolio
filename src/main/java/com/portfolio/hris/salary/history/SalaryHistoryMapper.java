@@ -8,6 +8,8 @@ import java.util.List;
 public interface SalaryHistoryMapper {
     List<SalaryHistoryDAO> getList();
 
+    List<SalaryHistoryDAO> readSalaryHistoryByUeid(String ueid);
+
     void createSalaryHistory(SalaryHistoryDAO salaryHistoryDAO);
 
     SalaryHistoryDAO getSalaryHistoryByUeidAndSeq(String ueid, int seq);

@@ -5,6 +5,8 @@ import java.util.List;
 public interface SalaryHistoryService {
     List<SalaryHistoryDTO> getList();
 
+    List<SalaryHistoryDTO> readSalaryHistoryByUeid(String ueid);
+
     void createSalaryHistory(SalaryHistoryDTO salaryHistoryDTO);
 
     SalaryHistoryDTO readSalaryHistory(String ueid, int seq);

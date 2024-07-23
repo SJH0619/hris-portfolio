@@ -24,6 +24,16 @@ public class SalaryHistoryServiceImpl implements SalaryHistoryService {
     }
 
     @Override
+    public List<SalaryHistoryDTO> readSalaryHistoryByUeid(String ueid) {
+        List<SalaryHistoryDAO> resource = salaryHistoryMapper.readSalaryHistoryByUeid(ueid);
+        List<SalaryHistoryDTO> result = new ArrayList<>();
+
+        resource.forEach(salaryHistory -> result.add(salaryHistory.getSalaryHistoryDTO()));
+
+        return result;
+    }
+
+    @Override
     @Transactional
     public void createSalaryHistory(SalaryHistoryDTO salaryHistoryDTO) {
         SalaryHistoryDAO salaryHistoryDAO = SalaryHistoryDAO.applySalaryHistoryDTO(salaryHistoryDTO);

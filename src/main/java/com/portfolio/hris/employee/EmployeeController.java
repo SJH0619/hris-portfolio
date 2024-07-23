@@ -6,6 +6,7 @@ import com.portfolio.hris.employment.EmploymentService;
 import com.portfolio.hris.evaluation.EvaluationService;
 import com.portfolio.hris.position.PositionService;
 import com.portfolio.hris.salary.SalaryService;
+import com.portfolio.hris.salary.history.SalaryHistoryService;
 import com.portfolio.hris.vacation.VacationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -24,6 +25,7 @@ public class EmployeeController {
     private final PositionService positionService;
     private final EmploymentService employmentService;
     private final SalaryService salaryService;
+    private final SalaryHistoryService salaryHistoryService;
     private final EvaluationService evaluationService;
     private final VacationService vacationService;
     private final AttendanceService attendanceService;
@@ -57,6 +59,7 @@ public class EmployeeController {
 
         model.addAttribute("employee", employeeDTO);
         model.addAttribute("salary", salaryService.readSalary(employeeDTO.getUeid()));
+        model.addAttribute("salaryHistoryList", salaryHistoryService);
         model.addAttribute("evaluationList", evaluationService.getListByUeid(employeeDTO.getUeid()));
         model.addAttribute("vacationList", vacationService.getListByUeid(employeeDTO.getUeid()));
         model.addAttribute("attendanceList", attendanceService.getListByUeid(employeeDTO.getUeid()));

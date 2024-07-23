@@ -22,6 +22,15 @@
             salary_history
     </select>
 
+    <select id="readSalaryHistoryByUeid" resultMap="SalaryHistory">
+        select
+            *
+        from
+            salary_history
+        where
+            ueid = #{ueid}
+    </select>
+
     <insert id="createSalaryHistory" parameterType="com.portfolio.hris.salary.history.SalaryHistoryDAO">
         insert into salary_history(
             ueid,
