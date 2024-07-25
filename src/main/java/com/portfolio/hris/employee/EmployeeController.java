@@ -59,7 +59,7 @@ public class EmployeeController {
 
         model.addAttribute("employee", employeeDTO);
         model.addAttribute("salary", salaryService.readSalary(employeeDTO.getUeid()));
-        model.addAttribute("salaryHistoryList", salaryHistoryService);
+        model.addAttribute("salaryHistoryList", salaryHistoryService.getListByUeid(employeeDTO.getUeid()));
         model.addAttribute("evaluationList", evaluationService.getListByUeid(employeeDTO.getUeid()));
         model.addAttribute("vacationList", vacationService.getListByUeid(employeeDTO.getUeid()));
         model.addAttribute("attendanceList", attendanceService.getListByUeid(employeeDTO.getUeid()));

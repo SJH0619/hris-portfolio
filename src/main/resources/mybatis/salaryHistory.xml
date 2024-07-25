@@ -22,7 +22,7 @@
             salary_history
     </select>
 
-    <select id="readSalaryHistoryByUeid" resultMap="SalaryHistory">
+    <select id="getListByUeid" resultMap="SalaryHistory">
         select
             *
         from

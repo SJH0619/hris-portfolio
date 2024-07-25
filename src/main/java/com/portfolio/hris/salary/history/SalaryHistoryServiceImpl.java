@@ -24,8 +24,8 @@ public class SalaryHistoryServiceImpl implements SalaryHistoryService {
     }
 
     @Override
-    public List<SalaryHistoryDTO> readSalaryHistoryByUeid(String ueid) {
-        List<SalaryHistoryDAO> resource = salaryHistoryMapper.readSalaryHistoryByUeid(ueid);
+    public List<SalaryHistoryDTO> getListByUeid(String ueid) {
+        List<SalaryHistoryDAO> resource = salaryHistoryMapper.getListByUeid(ueid);
         List<SalaryHistoryDTO> result = new ArrayList<>();
 
         resource.forEach(salaryHistory -> result.add(salaryHistory.getSalaryHistoryDTO()));
